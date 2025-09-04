@@ -17,7 +17,7 @@ const InvestorsPage: React.FC = () => {
       totalInvestment: '€129.0M',
       joinedDate: '5 Jul 2025',
       duration: '1 months',
-      projects: ['El 53 de Velázquez', 'AC Hotels'],
+      projects: ['Nomade Tulum', 'Nomade Holbox'],
       performance: '+12.4%'
     },
     {
@@ -31,7 +31,7 @@ const InvestorsPage: React.FC = () => {
       totalInvestment: '€29.0M',
       joinedDate: '4 Jul 2025',
       duration: '2 months',
-      projects: ['El 53 de Velázquez'],
+      projects: ['Nomade Tulum'],
       performance: '+8.7%'
     },
     {
@@ -45,7 +45,7 @@ const InvestorsPage: React.FC = () => {
       totalInvestment: '€157.0M',
       joinedDate: '5 Jul 2025',
       duration: '1 months',
-      projects: ['El 53 de Velázquez', 'Hermanos Becquer'],
+      projects: ['Nomade Tulum', 'Nomade Ibiza'],
       performance: '+15.2%'
     },
     {
@@ -89,41 +89,59 @@ const InvestorsPage: React.FC = () => {
   }, 0);
 
   return (
-    <div className="px-8 py-8 max-w-7xl mx-auto">
+    <div className="px-8 py-8 max-w-7xl mx-auto" style={{ backgroundColor: '#F7F5F0' }}>
       {/* Summary Cards */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-        <div className="bg-gradient-to-br from-nomade-green to-nomade-light-green text-white rounded-2xl p-6 shadow-xl">
-          <div className="flex items-center space-x-3 mb-4">
-            <div className="bg-white/20 rounded-xl p-3">
-              <TrendingUp size={24} />
+        <div className="bg-nomade-dark-brown/95 backdrop-blur-sm rounded-2xl p-6 border border-nomade-tan/20 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-105">
+          <div className="text-center space-y-4">
+            <div className="flex justify-center mb-3">
+              <div className="bg-nomade-tan/20 backdrop-blur-sm rounded-xl p-3 border border-nomade-tan/30">
+                <TrendingUp className="text-nomade-tan" size={24} />
+              </div>
             </div>
-            <div>
-              <h3 className="text-metric-md text-white">{investors.length}</h3>
-              <p className="text-body-sm text-white/80">Active Investors</p>
-            </div>
-          </div>
-        </div>
-        
-        <div className="bg-gradient-to-br from-nomade-terracotta to-nomade-orange-brown text-white rounded-2xl p-6 shadow-xl">
-          <div className="flex items-center space-x-3 mb-4">
-            <div className="bg-white/20 rounded-xl p-3">
-              <TrendingUp size={24} />
-            </div>
-            <div>
-              <h3 className="text-financial-md text-white">€{totalInvestment.toFixed(1)}M</h3>
-              <p className="text-body-sm text-white/80">Total Investments</p>
+            <div className="space-y-2">
+              <div className="text-xs font-serif tracking-[0.2em] uppercase text-nomade-tan/80 font-medium">
+                ACTIVE INVESTORS
+              </div>
+              <div className="text-3xl font-bold text-nomade-off-white tracking-tight">
+                {investors.length}
+              </div>
             </div>
           </div>
         </div>
         
-        <div className="bg-gradient-to-br from-nomade-sage-green to-nomade-teal text-white rounded-2xl p-6 shadow-xl">
-          <div className="flex items-center space-x-3 mb-4">
-            <div className="bg-white/20 rounded-xl p-3">
-              <Building2 size={24} />
+        <div className="bg-nomade-dark-brown/95 backdrop-blur-sm rounded-2xl p-6 border border-nomade-tan/20 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-105">
+          <div className="text-center space-y-4">
+            <div className="flex justify-center mb-3">
+              <div className="bg-nomade-tan/20 backdrop-blur-sm rounded-xl p-3 border border-nomade-tan/30">
+                <TrendingUp className="text-nomade-tan" size={24} />
+              </div>
             </div>
-            <div>
-              <h3 className="text-metric-md text-white">2.2</h3>
-              <p className="text-body-sm text-white/80">Avg. Properties/Investor</p>
+            <div className="space-y-2">
+              <div className="text-xs font-serif tracking-[0.2em] uppercase text-nomade-tan/80 font-medium">
+                TOTAL INVESTMENTS
+              </div>
+              <div className="text-3xl font-bold text-nomade-off-white tracking-tight">
+                €{totalInvestment.toFixed(1)}M
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div className="bg-nomade-dark-brown/95 backdrop-blur-sm rounded-2xl p-6 border border-nomade-tan/20 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-105">
+          <div className="text-center space-y-4">
+            <div className="flex justify-center mb-3">
+              <div className="bg-nomade-tan/20 backdrop-blur-sm rounded-xl p-3 border border-nomade-tan/30">
+                <Building2 className="text-nomade-tan" size={24} />
+              </div>
+            </div>
+            <div className="space-y-2">
+              <div className="text-xs font-serif tracking-[0.2em] uppercase text-nomade-tan/80 font-medium">
+                AVG. PROPERTIES/INVESTOR
+              </div>
+              <div className="text-3xl font-bold text-nomade-off-white tracking-tight">
+                2.2
+              </div>
             </div>
           </div>
         </div>
@@ -138,11 +156,11 @@ const InvestorsPage: React.FC = () => {
             placeholder="Search investors..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-12 pr-4 py-4 bg-white border border-nomade-gray/30 rounded-xl focus:ring-2 focus:ring-nomade-green focus:border-transparent transition-all duration-200 text-nomade-dark-brown"
+            className="w-full pl-12 pr-4 py-4 bg-white/60 backdrop-blur-sm border border-stone-200 rounded-2xl focus:ring-2 focus:ring-yellow-600/30 focus:border-yellow-600/50 transition-all duration-500 text-stone-800 placeholder:text-stone-400 shadow-inner"
           />
         </div>
         
-        <select className="bg-white border border-nomade-gray/30 rounded-xl px-6 py-4 text-nomade-dark-brown focus:ring-2 focus:ring-nomade-green">
+        <select className="bg-white/60 backdrop-blur-sm border border-stone-200 rounded-2xl px-6 py-4 text-stone-800 focus:ring-2 focus:ring-yellow-600/30 shadow-inner">
           <option>All My Projects</option>
           <option>NOMADE Punta Mita</option>
           <option>NOMADE Todos Santos</option>
@@ -157,7 +175,7 @@ const InvestorsPage: React.FC = () => {
         {filteredInvestors.map((investor) => (
           <div
             key={investor.id}
-            className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 hover:transform hover:scale-105 border border-nomade-gray/10"
+            className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 hover:transform hover:scale-105 border border-stone-200"
           >
             {/* Investor Header */}
             <div className="flex items-start justify-between mb-6">
@@ -165,15 +183,15 @@ const InvestorsPage: React.FC = () => {
                 <img
                   src={investor.avatar}
                   alt={investor.name}
-                  className="w-16 h-16 rounded-full object-cover border-2 border-nomade-green/20"
+                  className="w-16 h-16 rounded-full object-cover border-2 border-stone-300"
                 />
                 <div>
-                  <h3 className="text-heading-lg">{investor.name}</h3>
+                  <h3 className="text-heading-lg text-stone-800">{investor.name}</h3>
                   <div className="flex items-center space-x-2">
                     <span className={`px-2 py-1 rounded-full text-xs font-semibold ${
                       investor.type === 'Institutional' 
-                        ? 'bg-nomade-blue/10 text-nomade-blue' 
-                        : 'bg-nomade-terracotta/10 text-nomade-terracotta'
+                        ? 'bg-stone-100 text-stone-700' 
+                        : 'bg-stone-100 text-stone-700'
                     }`}>
                       {investor.type}
                     </span>
@@ -181,7 +199,7 @@ const InvestorsPage: React.FC = () => {
                 </div>
               </div>
               <div className="text-right">
-                <div className="text-badge text-green-600 flex items-center space-x-1">
+                <div className="text-badge text-nomade-green flex items-center space-x-1">
                   <TrendingUp size={14} />
                   <span>{investor.performance}</span>
                 </div>
@@ -189,28 +207,28 @@ const InvestorsPage: React.FC = () => {
             </div>
 
             {/* Contact Info */}
-            <div className="space-y-3 mb-6">
-              <div className="flex items-center space-x-3 text-nomade-gray">
+            <div className="space-y-3 mb-6 text-stone-600">
+              <div className="flex items-center space-x-3">
                 <Mail size={16} />
                 <span className="text-body-sm">{investor.email}</span>
               </div>
-              <div className="flex items-center space-x-3 text-nomade-gray">
+              <div className="flex items-center space-x-3">
                 <Phone size={16} />
                 <span className="text-body-sm">{investor.phone}</span>
               </div>
-              <div className="flex items-center space-x-3 text-nomade-gray">
+              <div className="flex items-center space-x-3">
                 <MapPin size={16} />
                 <span className="text-body-sm">{investor.location}</span>
               </div>
             </div>
 
             {/* Investment Details */}
-            <div className="bg-nomade-gray/5 rounded-xl p-4 mb-6">
+            <div className="bg-stone-50 rounded-xl p-4 mb-6">
               <div className="flex items-center justify-between mb-3">
-                <span className="text-label-sm">TOTAL INVESTMENT</span>
-                <span className="text-metric-md">{investor.totalInvestment}</span>
+                <span className="text-label-sm text-stone-600">TOTAL INVESTMENT</span>
+                <span className="text-metric-md text-stone-800">{investor.totalInvestment}</span>
               </div>
-              <div className="flex items-center justify-between text-body-sm">
+              <div className="flex items-center justify-between text-body-sm text-stone-600">
                 <span>Joined {investor.joinedDate}</span>
                 <span>{investor.duration}</span>
               </div>
@@ -218,10 +236,10 @@ const InvestorsPage: React.FC = () => {
 
             {/* Invested Projects */}
             <div className="mb-6">
-              <h4 className="text-label-sm mb-3">INVESTED PROJECTS</h4>
+              <h4 className="text-label-sm mb-3 text-stone-700">INVESTED PROJECTS</h4>
               <div className="space-y-2">
                 {investor.projects.map((project, index) => (
-                  <div key={index} className="text-body-sm text-nomade-dark-brown bg-nomade-green/5 px-3 py-2 rounded-lg">
+                  <div key={index} className="text-body-sm text-stone-700 bg-stone-100 px-3 py-2 rounded-lg">
                     {project}
                   </div>
                 ))}
@@ -231,7 +249,7 @@ const InvestorsPage: React.FC = () => {
             {/* Action Button */}
             <Link 
               to={`/investors/${investor.id}`}
-              className="w-full bg-nomade-green text-white py-3 rounded-xl hover:bg-nomade-light-green transition-all duration-300 text-button flex items-center justify-center space-x-2 shadow-lg"
+              className="w-full bg-nomade-green text-white py-3 rounded-xl hover:bg-nomade-light-green transition-all duration-300 text-button flex items-center justify-center space-x-2 shadow-lg hover:shadow-nomade-green/25"
             >
               <Eye size={18} />
               <span>View Full Profile</span>

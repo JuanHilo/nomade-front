@@ -82,7 +82,6 @@ const HotelCashflow: React.FC<HotelCashflowProps> = ({ hotel }) => {
     { id: 'overview', label: 'Overview', icon: BarChart3 },
     { id: 'cashflow', label: 'Cash Flow', icon: TrendingUp },
     { id: 'balance', label: 'Balance Sheet', icon: DollarSign },
-    { id: 'balance', label: 'Balance Sheet', icon: DollarSign },
     { id: 'pl', label: 'Profit & Loss', icon: Calendar },
     { id: 'financing', label: 'Financing', icon: Calendar }
   ];
