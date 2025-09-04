@@ -1,0 +1,782 @@
+@import url('https://fonts.googleapis.com/css2?family=Special+Elite&family=Poppins:wght@300;400;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+ * NOMADE Luxury Hotel Analytics & AI App Stylesheet
+ *
+ * This file defines the global styles for the Nomade analytics application.  The
+ * look and feel throughout the app reflect a "jungle chic" aesthetic – a
+ * restrained palette of earth tones, generous whitespace and refined
+ * typography.  Variables are used for brand colours to make customisation
+ * straightforward and ensure consistency across pages.  Additional classes
+ * describe layout primitives such as cards, grids and navigation controls.
+ */
+
+:root {
+  /* Core brand palette */
+  --colour-dark-brown: #1a150d;
+  --colour-green: #5d681d;
+  --colour-light-green: #99ab33;
+  --colour-off-white: #ebe9d8;
+  --colour-dark-grey: #222021;
+  --colour-white: #ffffff;
+  --colour-black: #000000;
+  --colour-terracotta: #ee735a;
+  --colour-tan: #b39d8c;
+  --colour-teal: #78b1bf;
+  --colour-orange-brown: #cc7d42;
+  --colour-dusty-rose: #b3837b;
+  --colour-sage: #82b074;
+  --colour-blue: #6176cb;
+  --colour-light-yellow: #ffe196;
+  --colour-lavender: #d094f2;
+
+  /* Sizing helpers */
+  --nav-width: 240px;
+  --radius: 10px;
+  --transition: 0.3s ease;
+  --card-padding: 1.5rem;
+  --card-margin: 1rem;
+}
+
+/* Global reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  font-family: 'Poppins', sans-serif;
+  color: var(--colour-dark-grey);
+  background-color: var(--colour-off-white);
+  height: 100%;
+  scroll-behavior: smooth;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+@layer base {
+  /* NOMADE Typography System - Standardized Across All Pages */
+  
+  /* Hero & Display Typography */
+  .text-hero {
+    @apply text-6xl font-display font-medium tracking-tight leading-[1.1] text-nomade-dark-brown;
+    font-family: 'Lora', serif;
+  }
+  
+  .text-hero-sub {
+    @apply text-xl font-sans font-normal leading-relaxed text-nomade-gray tracking-wide;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  /* Section & Page Titles */
+  .text-section-title {
+    @apply text-3xl font-display font-medium tracking-tight leading-tight text-nomade-dark-brown;
+    font-family: 'Lora', serif;
+  }
+  
+  .text-page-title {
+    @apply text-4xl font-display font-bold tracking-tight text-nomade-dark-brown;
+    font-family: 'Lora', serif;
+  }
+  
+  .text-card-title {
+    @apply text-2xl font-display font-semibold tracking-tight text-nomade-dark-brown;
+    font-family: 'Lora', serif;
+  }
+  
+  .text-subsection-title {
+    @apply text-xl font-display font-medium tracking-tight text-nomade-dark-brown;
+    font-family: 'Lora', serif;
+  }
+  
+  /* Hotel & Property Names */
+  .text-property-name {
+    @apply text-2xl font-display font-bold text-nomade-green tracking-tight;
+    font-family: 'Lora', serif;
+  }
+  
+  .text-property-location {
+    @apply text-lg font-serif font-normal italic text-nomade-tan leading-relaxed;
+    font-family: 'Crimson Text', serif;
+  }
+  
+  /* Metrics & Numbers */
+  .text-metric-large {
+    @apply text-4xl font-display font-semibold tracking-tight text-nomade-dark-brown;
+    font-family: 'Lora', serif;
+  }
+  
+  .text-metric-medium {
+    @apply text-2xl font-display font-bold tracking-tight text-nomade-green;
+    font-family: 'Lora', serif;
+  }
+  
+  .text-metric-small {
+    @apply text-lg font-sans font-semibold text-nomade-dark-brown;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  .text-metric-label {
+    @apply text-xs font-sans font-medium uppercase tracking-[0.15em] text-nomade-gray;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  /* Financial Values */
+  .text-financial-large {
+    @apply text-4xl font-display font-bold tracking-tight;
+    font-family: 'Lora', serif;
+    background: linear-gradient(135deg, #d4af37, #ffd700, #ffed4e);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .text-financial-medium {
+    @apply text-2xl font-display font-semibold text-nomade-green;
+    font-family: 'Lora', serif;
+  }
+  
+  /* Body Text */
+  .text-body-elegant {
+    @apply text-lg font-serif font-normal leading-relaxed text-nomade-gray;
+    font-family: 'Crimson Text', serif;
+  }
+  
+  .text-body {
+    @apply text-base font-sans font-normal leading-relaxed text-nomade-gray;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  .text-body-small {
+    @apply text-sm font-sans font-normal leading-relaxed text-nomade-gray;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  /* Navigation & UI */
+  .text-nav {
+    @apply text-sm font-sans font-medium tracking-wide;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  .text-button {
+    @apply text-sm font-sans font-medium tracking-wide;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  .text-badge {
+    @apply text-xs font-sans font-semibold uppercase tracking-[0.1em];
+    font-family: 'Inter', sans-serif;
+  }
+  
+  /* Status & Labels */
+  .text-status {
+    @apply text-xs font-sans font-bold uppercase tracking-[0.15em];
+    font-family: 'Inter', sans-serif;
+  }
+  
+  .text-secondary {
+    @apply text-sm font-sans font-medium text-nomade-gray;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  /* Luxury Effects */
+  .letter-spacing-luxury {
+    letter-spacing: 0.02em;
+  }
+  
+  .text-gradient-gold {
+    background: linear-gradient(135deg, #d4af37, #ffd700, #ffed4e);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .text-gradient-green {
+    background: linear-gradient(135deg, #5d681d, #99ab33);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
+/* Top navigation bar for public pages such as the home page.  It floats on
+ * top of the hero imagery and remains subtle so as not to distract from
+ * the content below. */
+.topbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  z-index: 10;
+}
+
+.topbar .logo {
+  font-family: 'Special Elite', monospace;
+  font-size: 1.5rem;
+  color: var(--colour-off-white);
+  letter-spacing: 2px;
+}
+
+.topbar .actions {
+  display: flex;
+  gap: 1rem;
+}
+
+.button {
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius);
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color var(--transition), color var(--transition);
+  border: none;
+  text-align: center;
+}
+
+.button.primary {
+  background-color: var(--colour-green);
+  color: var(--colour-off-white);
+}
+
+.button.primary:hover {
+  background-color: var(--colour-light-green);
+}
+
+.button.outline {
+  background-color: transparent;
+  border: 2px solid var(--colour-off-white);
+  color: var(--colour-off-white);
+}
+
+.button.outline:hover {
+  background-color: var(--colour-off-white);
+  color: var(--colour-dark-brown);
+}
+
+/* Hero section on the home page */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  background-image: url('./assets/images/hero_background.png');
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(26, 21, 13, 0.5); /* dark overlay to increase contrast */
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 3rem;
+  max-width: 50%;
+  color: var(--colour-off-white);
+  text-align: left;
+}
+
+.hero h1 {
+  font-family: 'Special Elite', monospace;
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  opacity: 0.85;
+}
+
+.hero .cta {
+  display: flex;
+  gap: 1rem;
+}
+
+/* Login page */
+.login-wrapper {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url('./assets/images/bg_pattern2.png');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.login-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(26, 21, 13, 0.6);
+}
+
+.login-box {
+  position: relative;
+  z-index: 2;
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 2rem 3rem;
+  border-radius: var(--radius);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  width: 100%;
+}
+
+.login-box h2 {
+  font-family: 'Special Elite', monospace;
+  margin-bottom: 1rem;
+  font-size: 2rem;
+  color: var(--colour-dark-brown);
+  text-align: center;
+}
+
+.login-box form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.login-box label {
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+  color: var(--colour-dark-brown);
+}
+
+.login-box input {
+  padding: 0.75rem;
+  border: 1px solid var(--colour-tan);
+  border-radius: var(--radius);
+  font-size: 1rem;
+  background-color: var(--colour-off-white);
+  color: var(--colour-dark-brown);
+}
+
+.login-box .submit {
+  margin-top: 1rem;
+  background-color: var(--colour-green);
+  color: var(--colour-off-white);
+  border: none;
+}
+
+.login-box .submit:hover {
+  background-color: var(--colour-light-green);
+}
+
+/* Layout for authenticated pages (dashboard, hotels, investors, reports, chatbot) */
+.app-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Sidebar navigation */
+.sidebar {
+  width: var(--nav-width);
+  background-color: var(--colour-dark-brown);
+  color: var(--colour-off-white);
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 0;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+}
+
+.sidebar .brand {
+  font-family: 'Special Elite', monospace;
+  font-size: 1.5rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.sidebar nav {
+  flex-grow: 1;
+}
+
+.sidebar ul {
+  list-style: none;
+}
+
+.sidebar li {
+  margin: 0;
+}
+
+.sidebar a {
+  display: block;
+  padding: 0.75rem 1.5rem;
+  color: var(--colour-off-white);
+  font-weight: 500;
+  transition: background-color var(--transition), color var(--transition);
+}
+
+.sidebar a:hover, .sidebar a.active {
+  background-color: var(--colour-green);
+  color: var(--colour-off-white);
+}
+
+.sidebar .logout {
+  margin-top: auto;
+  padding: 0.75rem 1.5rem;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color var(--transition);
+}
+
+.sidebar .logout:hover {
+  background-color: var(--colour-orange-brown);
+}
+
+/* Main content area */
+.content {
+  flex-grow: 1;
+  background-color: var(--colour-off-white);
+  padding: 2rem;
+}
+
+/* Headings */
+h1, h2, h3 {
+  font-family: 'Special Elite', monospace;
+  color: var(--colour-dark-brown);
+  margin-bottom: 0.5rem;
+}
+
+/* Card component */
+.card {
+  background-color: var(--colour-white);
+  border-radius: var(--radius);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  padding: var(--card-padding);
+  margin: var(--card-margin);
+}
+
+.card-title {
+  font-family: 'Special Elite', monospace;
+  margin-bottom: 0.5rem;
+  font-size: 1.25rem;
+  color: var(--colour-dark-brown);
+}
+
+/* KPI cards */
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.kpi-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  background-color: var(--colour-green);
+  color: var(--colour-off-white);
+  padding: 1.5rem;
+  border-radius: var(--radius);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.kpi-card .label {
+  font-size: 0.9rem;
+  opacity: 0.8;
+  margin-bottom: 0.25rem;
+}
+
+.kpi-card .value {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+/* Chart containers */
+.charts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.chart-box {
+  background-color: var(--colour-white);
+  border-radius: var(--radius);
+  padding: 1rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.chart-box canvas {
+  width: 100% !important;
+  height: 300px !important;
+}
+
+/* Table styling */
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 2rem;
+}
+
+.data-table thead {
+  background-color: var(--colour-green);
+  color: var(--colour-off-white);
+}
+
+.data-table th, .data-table td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.data-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.data-table tr:hover {
+  background-color: #f1f1f1;
+}
+
+/* Hotels and investors card lists */
+.card-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+.hotel-card, .investor-card {
+  background-color: var(--colour-white);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+}
+
+.hotel-card img, .investor-card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+.hotel-card .card-body, .investor-card .card-body {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.hotel-card h3, .investor-card h3 {
+  font-family: 'Special Elite', monospace;
+  margin: 0;
+  font-size: 1.3rem;
+  color: var(--colour-dark-brown);
+}
+
+.hotel-card p, .investor-card p {
+  font-size: 0.9rem;
+  color: var(--colour-dark-grey);
+}
+
+.hotel-card .actions, .investor-card .actions {
+  margin-top: auto;
+}
+
+.hotel-card .actions button, .investor-card .actions button {
+  width: 100%;
+  padding: 0.5rem;
+  border: none;
+  border-radius: var(--radius);
+  background-color: var(--colour-green);
+  color: var(--colour-off-white);
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color var(--transition);
+}
+
+.hotel-card .actions button:hover, .investor-card .actions button:hover {
+  background-color: var(--colour-light-green);
+}
+
+/* Search bar */
+.search-bar {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.search-bar input {
+  flex-grow: 1;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--colour-tan);
+  border-radius: var(--radius);
+  font-size: 1rem;
+  background-color: var(--colour-off-white);
+  margin-right: 1rem;
+}
+
+.search-bar button {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: var(--radius);
+  background-color: var(--colour-green);
+  color: var(--colour-off-white);
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color var(--transition);
+}
+
+.search-bar button:hover {
+  background-color: var(--colour-light-green);
+}
+
+/* Report page */
+.report-controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.report-controls select {
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--colour-tan);
+  border-radius: var(--radius);
+  background-color: var(--colour-white);
+  font-size: 1rem;
+  color: var(--colour-dark-brown);
+}
+
+.report-container {
+  background-color: var(--colour-white);
+  padding: 2rem;
+  border-radius: var(--radius);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  max-height: 70vh;
+  overflow-y: auto;
+}
+
+.report-container h3 {
+  margin-top: 1.5rem;
+}
+
+.report-container p {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+/* Chatbot page */
+.chatbot-container {
+  display: flex;
+  flex-direction: column;
+  height: 80vh;
+  background-image: url('./assets/images/bg_pattern1.png');
+  background-size: cover;
+  background-position: center;
+  border-radius: var(--radius);
+  overflow: hidden;
+  position: relative;
+}
+
+.chatbot-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(26, 21, 13, 0.6);
+  z-index: 1;
+}
+
+.chat-window {
+  flex-grow: 1;
+  padding: 1rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  z-index: 2;
+  position: relative;
+}
+
+.chat-message {
+  max-width: 70%;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius);
+  color: var(--colour-off-white);
+  line-height: 1.4;
+  position: relative;
+}
+
+.chat-message.user {
+  align-self: flex-end;
+  background-color: var(--colour-green);
+  color: var(--colour-off-white);
+}
+
+.chat-message.bot {
+  align-self: flex-start;
+  background-color: var(--colour-dark-brown);
+  color: var(--colour-off-white);
+}
+
+.chat-input {
+  display: flex;
+  padding: 0.5rem;
+  background-color: rgba(255, 255, 255, 0.8);
+  z-index: 2;
+}
+
+.chat-input input {
+  flex-grow: 1;
+  padding: 0.75rem;
+  border: 1px solid var(--colour-tan);
+  border-radius: var(--radius);
+  font-size: 1rem;
+  background-color: var(--colour-off-white);
+  margin-right: 0.5rem;
+}
+
+.chat-input button {
+  padding: 0.75rem 1rem;
+  border: none;
+  border-radius: var(--radius);
+  background-color: var(--colour-green);
+  color: var(--colour-off-white);
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color var(--transition);
+}
+
+.chat-input button:hover {
+  background-color: var(--colour-light-green);
+}
