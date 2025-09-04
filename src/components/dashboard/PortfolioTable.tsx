@@ -124,6 +124,9 @@ const PortfolioTable: React.FC = () => {
                   </div>
                 </td>
                 <td className="py-4 px-3 text-center font-bold text-white">365</td>
+            </tr>
+            
+            <tr className="border-b bg-emerald-400/10 border-emerald-400/30">
                 <td className="py-4 px-3 text-center">
                   <span className="px-2 py-1 rounded-full text-xs font-bold border bg-emerald-400/20 text-emerald-300 border-emerald-400/30">
                     89.6%
