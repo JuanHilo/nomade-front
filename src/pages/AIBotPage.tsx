@@ -228,13 +228,13 @@ const AIBotPage: React.FC = () => {
                   {/* AI Insights */}
                   {message.insights && (
                     <div className="mt-4 bg-white/20 rounded-xl p-3">
-                      <h4 className="text-sm font-bold mb-2 flex items-center space-x-2">
+                      <h4 className="text-label mb-2 flex items-center space-x-2">
                         <Sparkles size={16} />
                         <span>Key Insights</span>
                       </h4>
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
                         {message.insights.map((insight, index) => (
-                          <div key={index} className="bg-white/30 rounded-lg p-2 text-sm font-medium">
+                          <div key={index} className="bg-white/30 rounded-lg p-2 text-body-sm">
                             • {insight}
                           </div>
                         ))}
@@ -245,7 +245,7 @@ const AIBotPage: React.FC = () => {
                   {/* Suggestions */}
                   {message.suggestions && (
                     <div className="mt-4 space-y-2">
-                      <p className="text-badge text-white/75 flex items-center space-x-2">
+                      <p className="text-label-sm text-white/75 flex items-center space-x-2">
                         <Target size={16} />
                         <span>Suggested Actions:</span>
                       </p>
@@ -254,7 +254,7 @@ const AIBotPage: React.FC = () => {
                           <button
                             key={index}
                             onClick={() => setInputValue(suggestion)}
-                            className="text-left bg-white/20 hover:bg-white/30 border border-white/30 rounded-lg p-2 text-body-small transition-all duration-200 hover:transform hover:scale-105 font-medium text-white"
+                            className="text-left bg-white/20 hover:bg-white/30 border border-white/30 rounded-lg p-2 text-body-sm transition-all duration-200 hover:transform hover:scale-105 text-white"
                           >
                             {suggestion}
                           </button>
@@ -281,7 +281,7 @@ const AIBotPage: React.FC = () => {
                       <div className="w-2 h-2 bg-nomade-green rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
                       <div className="w-2 h-2 bg-nomade-green rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
                     </div>
-                    <span className="text-body-small text-nomade-gray">FinGPT is analyzing...</span>
+                    <span className="text-body-sm text-nomade-gray">FinGPT is analyzing...</span>
                   </div>
                 </div>
               </div>
@@ -323,7 +323,7 @@ const AIBotPage: React.FC = () => {
               <button
                 key={index}
                 onClick={() => setInputValue(suggestion)}
-                className="bg-white/80 backdrop-blur-sm text-nomade-gray text-badge px-3 py-1 rounded-full hover:bg-nomade-green hover:text-white transition-all duration-200 border border-gray-200/50 shadow-sm hover:shadow-md"
+                className="bg-white/80 backdrop-blur-sm text-nomade-gray text-label-sm px-3 py-1 rounded-full hover:bg-nomade-green hover:text-white transition-all duration-200 border border-gray-200/50 shadow-sm hover:shadow-md"
               >
                 {suggestion}
               </button>

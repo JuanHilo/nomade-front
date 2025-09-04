@@ -69,28 +69,28 @@ const HotelDetailPage: React.FC = () => {
                 <ArrowLeft size={20} />
                 <span>Back to Hotels</span>
               </Link>
-              <h1 className="text-6xl font-bold text-nomade-off-white tracking-tight">
+              <h1 className="text-display-lg text-nomade-off-white">
                 {hotel.name}
               </h1>
-              <p className="text-xl text-nomade-off-white/90 font-medium">
+              <p className="text-body-xl text-nomade-off-white/90">
                 {hotel.location}
               </p>
             </div>
             
             <div className="flex items-center space-x-8">
               <div className="text-right">
-                <div className="text-3xl font-bold text-nomade-green">{hotel.keys}</div>
-                <div className="text-sm text-nomade-off-white/80 font-medium">Keys</div>
+                <div className="text-metric-lg text-nomade-green">{hotel.keys}</div>
+                <div className="text-label-sm text-nomade-off-white/80">Keys</div>
               </div>
               
               <div className="w-px h-16 bg-nomade-off-white/30"></div>
               
               <div className="text-right">
-                <div className="text-3xl font-bold text-nomade-terracotta">87%</div>
-                <div className="text-sm text-nomade-off-white/80 font-medium">Occupancy</div>
+                <div className="text-metric-lg text-nomade-terracotta">87%</div>
+                <div className="text-label-sm text-nomade-off-white/80">Occupancy</div>
               </div>
               
-              <button className="bg-nomade-green text-nomade-off-white px-8 py-4 rounded-xl hover:bg-nomade-light-green transition-all duration-300 font-semibold shadow-xl flex items-center space-x-2">
+              <button className="bg-nomade-green text-nomade-off-white px-8 py-4 rounded-xl hover:bg-nomade-light-green transition-all duration-300 text-button shadow-xl flex items-center space-x-2">
                 <Download size={20} />
                 <span>Export Report</span>
               </button>
@@ -111,7 +111,7 @@ const HotelDetailPage: React.FC = () => {
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`flex-1 py-4 px-6 rounded-xl font-semibold transition-all duration-200 flex items-center justify-center space-x-2 ${
+                className={`flex-1 py-4 px-6 rounded-xl text-button transition-all duration-200 flex items-center justify-center space-x-2 ${
                   activeTab === tab.id
                     ? 'bg-nomade-green text-white shadow-lg'
                     : 'text-nomade-gray hover:bg-nomade-gray/5'

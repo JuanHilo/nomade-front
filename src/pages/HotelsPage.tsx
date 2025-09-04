@@ -124,14 +124,14 @@ const HotelsPage: React.FC = () => {
           </div>
         </div>
 
-        {/* Ultra-Luxury Portfolio Grid */}
-        <div className="space-y-12">
+        {/* 3-Column Hotel Portfolio Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
           {filteredHotels.map((hotel) => (
             <div
               key={hotel.id}
               className="group relative rounded-3xl overflow-hidden transition-all duration-700 hover:transform hover:scale-[1.02]"
               style={{
-                height: '480px',
+                height: '520px',
                 background: `linear-gradient(135deg, rgba(28, 28, 27, 0.7) 0%, rgba(47, 59, 45, 0.6) 50%, rgba(28, 28, 27, 0.8) 100%), url('${hotel.image}')`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
@@ -143,7 +143,7 @@ const HotelsPage: React.FC = () => {
               <div className="absolute inset-0 bg-gradient-to-r from-stone-900/60 via-transparent to-stone-900/40"></div>
               
               {/* Content */}
-              <div className="relative z-10 h-full flex flex-col justify-between p-12">
+              <div className="relative z-10 h-full flex flex-col justify-between p-8">
                 {/* Top Section - Status & Location */}
                 <div className="space-y-4">
                   {/* Embossed Status Ribbon */}
@@ -181,12 +181,12 @@ const HotelsPage: React.FC = () => {
                   </div>
                 </div>
 
-                {/* Bottom Section - Hotel Info & Metrics */}
-                <div className="space-y-8">
+                {/* Bottom Section - Hotel Info */}
+                <div className="space-y-6">
                   {/* Hotel Name & Narrative */}
                   <div className="space-y-4">
                     <h3 
-                      className="text-5xl font-medium tracking-wider text-stone-100"
+                      className="text-4xl font-medium tracking-wider text-stone-100"
                       style={{
                         fontFamily: 'Lora, serif',
                         letterSpacing: '0.05em',
@@ -197,7 +197,7 @@ const HotelsPage: React.FC = () => {
                     </h3>
                     
                     <p 
-                      className="text-xl leading-relaxed text-stone-200 max-w-3xl"
+                      className="text-lg leading-relaxed text-stone-200 max-w-full"
                       style={{
                         fontFamily: 'Crimson Text, serif',
                         fontStyle: 'italic',
@@ -209,330 +209,36 @@ const HotelsPage: React.FC = () => {
                     </p>
 
                     {/* Phase Status */}
-                    <p 
-                      className="text-lg text-stone-300"
-                      style={{
-                        fontFamily: 'Crimson Text, serif',
-                        fontStyle: 'italic',
-                        letterSpacing: '0.02em'
-                      }}
-                    >
+                    <p className="text-body-lg text-stone-300">
                       {hotel.phase}
                     </p>
                   </div>
 
-                  {/* Metrics & Action Row */}
-                  <div className="flex items-end justify-between">
-                    {/* Engraved Metrics */}
-                    <div className="flex items-center space-x-16">
-                      {hotel.status === 'Operational' && (
-                        <>
-                          <div className="space-y-1">
-                            <div 
-                              className="text-sm uppercase tracking-widest text-stone-400"
-                              style={{
-                                fontFamily: 'Inter, sans-serif',
-                                fontSize: '11px',
-                                letterSpacing: '0.15em'
-                              }}
-                            >
-                              Occupancy
-                            </div>
-                            <div className="flex items-baseline space-x-3">
-                              <span 
-                                className="text-3xl font-medium"
-                                style={{
-                                  fontFamily: 'Lora, serif',
-                                  color: '#82b074',
-                                  textShadow: '0 1px 2px rgba(0,0,0,0.2)'
-                                }}
-                              >
-                                {hotel.occupancy}%
-                              </span>
-                              {hotel.occupancyDelta && (
-                                <span 
-                                  className="text-lg"
-                                  style={{
-                                    fontFamily: 'Crimson Text, serif',
-                                    fontStyle: 'italic',
-                                    color: '#82b074',
-                                    opacity: 0.8
-                                  }}
-                                >
-                                  {hotel.occupancyDelta}%
-                                </span>
-                              )}
-                            </div>
-                          </div>
-
-                          <div className="w-px h-12 bg-stone-400/30"></div>
-
-                          <div className="space-y-1">
-                            <div 
-                              className="text-sm uppercase tracking-widest text-stone-400"
-                              style={{
-                                fontFamily: 'Inter, sans-serif',
-                                fontSize: '11px',
-                                letterSpacing: '0.15em'
-                              }}
-                            >
-                              ADR
-                            </div>
-                            <div className="space-y-1">
-                              <span 
-                                className="text-3xl font-medium"
-                                style={{
-                                  fontFamily: 'Lora, serif',
-                                  color: '#C7A34A',
-                                  textShadow: '0 1px 2px rgba(0,0,0,0.2)'
-                                }}
-                              >
-                                €{hotel.adr}
-                              </span>
-                              <div 
-                                className="text-sm text-stone-400"
-                                style={{
-                                  fontFamily: 'Crimson Text, serif',
-                                  fontStyle: 'italic',
-                                  fontSize: '12px'
-                                }}
-                              >
-                                per guest night
-                              </div>
-                            </div>
-                          </div>
-
-                          <div className="w-px h-12 bg-stone-400/30"></div>
-
-                          <div className="space-y-1">
-                            <div 
-                              className="text-sm uppercase tracking-widest text-stone-400"
-                              style={{
-                                fontFamily: 'Inter, sans-serif',
-                                fontSize: '11px',
-                                letterSpacing: '0.15em'
-                              }}
-                            >
-                              RevPAR
-                            </div>
-                            <div className="space-y-1">
-                              <span 
-                                className="text-3xl font-medium"
-                                style={{
-                                  fontFamily: 'Lora, serif',
-                                  color: '#1C1C1B',
-                                  textShadow: '0 1px 2px rgba(0,0,0,0.2)'
-                                }}
-                              >
-                                €{hotel.revpar}
-                              </span>
-                              <div 
-                                className="text-sm text-stone-400"
-                                style={{
-                                  fontFamily: 'Crimson Text, serif',
-                                  fontStyle: 'italic',
-                                  fontSize: '12px'
-                                }}
-                              >
-                                per key
-                              </div>
-                            </div>
-                          </div>
-                        </>
-                      )}
-
-                      {hotel.status !== 'Operational' && (
-                        <div className="space-y-1">
-                          <div 
-                            className="text-sm uppercase tracking-widest text-stone-400"
-                            style={{
-                              fontFamily: 'Inter, sans-serif',
-                              fontSize: '11px',
-                              letterSpacing: '0.15em'
-                            }}
-                          >
-                            Keys
-                          </div>
-                          <div className="space-y-1">
-                            <span 
-                              className="text-3xl font-medium"
-                              style={{
-                                fontFamily: 'Lora, serif',
-                                color: '#1C1C1B',
-                                textShadow: '0 1px 2px rgba(0,0,0,0.2)'
-                              }}
-                            >
-                              {hotel.keys}
-                            </span>
-                            <div 
-                              className="text-sm text-stone-400"
-                              style={{
-                                fontFamily: 'Crimson Text, serif',
-                                fontStyle: 'italic',
-                                fontSize: '12px'
-                              }}
-                            >
-                              luxury accommodations
-                            </div>
-                          </div>
-                        </div>
-                      )}
-                    </div>
-
-                    {/* Ghost Button */}
+                  {/* Action Button */}
+                  <div className="flex justify-center">
                     <Link 
                       to={`/hotels/${hotel.id}`}
-                      className="group/btn relative px-8 py-4 rounded-2xl transition-all duration-500 backdrop-blur-sm"
+                      className="group/btn relative px-8 py-4 rounded-2xl transition-all duration-500 backdrop-blur-sm text-button"
                       style={{
                         border: '1px solid rgba(199, 163, 74, 0.4)',
                         backgroundColor: 'rgba(199, 163, 74, 0.1)',
                         color: '#F7F5F0'
                       }}
                       onMouseEnter={(e) => {
-                        e.currentTarget.style.backgroundColor = 'rgba(228, 217, 201, 0.2)';
-                        e.currentTarget.style.borderColor = 'rgba(199, 163, 74, 0.6)';
-                      }}
-                      onMouseLeave={(e) => {
-                        e.currentTarget.style.backgroundColor = 'rgba(199, 163, 74, 0.1)';
-                        e.currentTarget.style.borderColor = 'rgba(199, 163, 74, 0.4)';
                       }}
                     >
-                      <span 
-                        className="flex items-center space-x-3"
-                        style={{
-                          fontFamily: 'Inter, sans-serif',
-                          fontWeight: '500',
-                          letterSpacing: '0.05em',
-                          textShadow: '0 1px 2px rgba(0,0,0,0.3)'
-                        }}
-                      >
+                    <p className="text-body text-stone-300">
+                      <span className="flex items-center space-x-3">
                         <span>Explore Sanctuary</span>
                         <ArrowRight size={18} className="group-hover/btn:translate-x-1 transition-transform duration-300" />
                       </span>
+                    </p>
                     </Link>
                   </div>
                 </div>
               </div>
             </div>
           ))}
-        </div>
-
-        {/* Portfolio Summary */}
-        <div 
-          className="mt-24 rounded-3xl p-16 relative overflow-hidden"
-          style={{
-            backgroundColor: '#1C1C1B',
-            backgroundImage: 'url(/bg_pattern1.png)',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center'
-          }}
-        >
-          <div className="absolute inset-0" style={{ backgroundColor: 'rgba(28, 28, 27, 0.85)' }}></div>
-          <div className="relative z-10 text-center space-y-8">
-            <h2 
-              className="text-6xl font-light tracking-wider"
-              style={{
-                fontFamily: 'Lora, serif',
-                color: '#F7F5F0',
-                letterSpacing: '0.08em',
-                textShadow: '0 2px 4px rgba(0,0,0,0.3)'
-              }}
-            >
-              Portfolio Excellence
-            </h2>
-            <p 
-              className="text-2xl leading-relaxed max-w-4xl mx-auto"
-              style={{
-                fontFamily: 'Crimson Text, serif',
-                fontStyle: 'italic',
-                color: 'rgba(247, 245, 240, 0.9)',
-                letterSpacing: '0.02em'
-              }}
-            >
-              Six distinctive sanctuaries across three continents, each crafted to redefine luxury hospitality
-            </p>
-            
-            <div className="flex items-center justify-center space-x-24 mt-16">
-              <div className="text-center space-y-3">
-                <div 
-                  className="text-5xl font-medium"
-                  style={{
-                    fontFamily: 'Lora, serif',
-                    background: 'linear-gradient(135deg, #C7A34A, #D4AF37, #FFE196)',
-                    WebkitBackgroundClip: 'text',
-                    WebkitTextFillColor: 'transparent',
-                    backgroundClip: 'text'
-                  }}
-                >
-                  591
-                </div>
-                <div 
-                  className="text-sm uppercase tracking-widest"
-                  style={{
-                    fontFamily: 'Inter, sans-serif',
-                    color: 'rgba(247, 245, 240, 0.7)',
-                    letterSpacing: '0.15em'
-                  }}
-                >
-                  Total Keys
-                </div>
-              </div>
-              
-              <div className="w-px h-16" style={{ backgroundColor: 'rgba(247, 245, 240, 0.2)' }}></div>
-              
-              <div className="text-center space-y-3">
-                <div 
-                  className="text-5xl font-medium"
-                  style={{
-                    fontFamily: 'Lora, serif',
-                    background: 'linear-gradient(135deg, #C7A34A, #D4AF37, #FFE196)',
-                    WebkitBackgroundClip: 'text',
-                    WebkitTextFillColor: 'transparent',
-                    backgroundClip: 'text'
-                  }}
-                >
-                  €940M
-                </div>
-                <div 
-                  className="text-sm uppercase tracking-widest"
-                  style={{
-                    fontFamily: 'Inter, sans-serif',
-                    color: 'rgba(247, 245, 240, 0.7)',
-                    letterSpacing: '0.15em'
-                  }}
-                >
-                  Portfolio Value
-                </div>
-              </div>
-              
-              <div className="w-px h-16" style={{ backgroundColor: 'rgba(247, 245, 240, 0.2)' }}></div>
-              
-              <div className="text-center space-y-3">
-                <div 
-                  className="text-5xl font-medium"
-                  style={{
-                    fontFamily: 'Lora, serif',
-                    background: 'linear-gradient(135deg, #C7A34A, #D4AF37, #FFE196)',
-                    WebkitBackgroundClip: 'text',
-                    WebkitTextFillColor: 'transparent',
-                    backgroundClip: 'text'
-                  }}
-                >
-                  89.6%
-                </div>
-                <div 
-                  className="text-sm uppercase tracking-widest"
-                  style={{
-                    fontFamily: 'Inter, sans-serif',
-                    color: 'rgba(247, 245, 240, 0.7)',
-                    letterSpacing: '0.15em'
-                  }}
-                >
-                  Average Occupancy
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </div>

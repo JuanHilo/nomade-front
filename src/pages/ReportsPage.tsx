@@ -156,11 +156,11 @@ const ReportsPage: React.FC = () => {
                     className="w-16 h-16 rounded-xl object-cover"
                   />
                   <div className="flex-1">
-                    <h3 className="font-bold text-nomade-dark-brown text-sm">{report.title}</h3>
-                    <p className="text-xs text-nomade-gray">{report.hotel}</p>
-                    <p className="text-xs text-nomade-gray">{report.date}</p>
+                    <h3 className="text-label text-nomade-dark-brown">{report.title}</h3>
+                    <p className="text-body-xs text-nomade-gray">{report.hotel}</p>
+                    <p className="text-body-xs text-nomade-gray">{report.date}</p>
                     <div className="flex items-center justify-between mt-2">
-                      <span className={`px-2 py-1 rounded-full text-xs font-semibold ${
+                      <span className={`px-2 py-1 rounded-full text-badge ${
                         report.status === 'Published' 
                           ? 'bg-green-100 text-green-800' 
                           : 'bg-yellow-100 text-yellow-800'
@@ -202,11 +202,11 @@ const ReportsPage: React.FC = () => {
           <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
             <div className="bg-nomade-dark-brown text-white p-4 flex items-center justify-between">
               <div>
-                <h3 className="text-subsection-title text-white">
+                <h3 className="text-heading-md text-white">
                   {selectedReport ? selectedReport.title : 'Select a report to view'}
                 </h3>
                 {selectedReport && (
-                  <p className="text-body-small text-nomade-off-white/80">
+                  <p className="text-body-sm text-nomade-off-white/80">
                     {selectedReport.hotel} • {selectedReport.date}
                   </p>
                 )}
@@ -235,16 +235,16 @@ const ReportsPage: React.FC = () => {
                 <div className="flex items-center justify-center h-full">
                   <div className="text-center space-y-4">
                     <FileText className="mx-auto text-nomade-gray" size={64} />
-                    <h3 className="text-xl font-semibold text-nomade-dark-brown">Draft Report</h3>
-                    <p className="text-nomade-gray">This report is still in draft status and not available for viewing.</p>
+                    <h3 className="text-heading-md text-nomade-dark-brown">Draft Report</h3>
+                    <p className="text-body text-nomade-gray">This report is still in draft status and not available for viewing.</p>
                   </div>
                 </div>
               ) : (
                 <div className="flex items-center justify-center h-full">
                   <div className="text-center space-y-4">
                     <FileText className="mx-auto text-nomade-gray" size={64} />
-                    <h3 className="text-xl font-semibold text-nomade-dark-brown">No Report Selected</h3>
-                    <p className="text-nomade-gray">Select a report from the list to view its contents.</p>
+                    <h3 className="text-heading-md text-nomade-dark-brown">No Report Selected</h3>
+                    <p className="text-body text-nomade-gray">Select a report from the list to view its contents.</p>
                   </div>
                 </div>
               )}

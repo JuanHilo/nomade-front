@@ -24,9 +24,8 @@ export default {
         }
       },
       fontFamily: {
-        'display': ['Lora', 'serif'],
-        'serif': ['Crimson Text', 'serif'], 
-        'sans': ['Inter', 'ui-sans-serif', 'system-ui'],
+        'sans': ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
+        'mono': ['JetBrains Mono', 'Fira Code', 'Monaco', 'monospace'],
       },
       animation: {
         'fade-in': 'fadeIn 0.5s ease-in-out',

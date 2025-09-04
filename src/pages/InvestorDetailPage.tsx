@@ -618,10 +618,10 @@ const InvestorDetailPage: React.FC = () => {
                   className="w-20 h-20 rounded-full object-cover border-4 border-white/20"
                 />
                 <div>
-                  <h1 className="text-5xl font-bold text-nomade-off-white tracking-tight">
+                  <h1 className="text-display-md text-nomade-off-white">
                     {investor.name}
                   </h1>
-                  <p className="text-xl text-nomade-off-white/90 font-medium mt-2">
+                  <p className="text-body-xl text-nomade-off-white/90 mt-2">
                     {investor.type} • {investor.location}
                   </p>
                 </div>
@@ -630,15 +630,15 @@ const InvestorDetailPage: React.FC = () => {
             
             <div className="flex items-center space-x-8">
               <div className="text-right">
-                <div className="text-3xl font-bold text-nomade-green">{investor.totalInvestment}</div>
-                <div className="text-sm text-nomade-off-white/80 font-medium">Total Investment</div>
+                <div className="text-metric-lg text-nomade-green">{investor.totalInvestment}</div>
+                <div className="text-label-sm text-nomade-off-white/80">Total Investment</div>
               </div>
               
               <div className="w-px h-16 bg-nomade-off-white/30"></div>
               
               <div className="text-right">
-                <div className="text-3xl font-bold text-nomade-terracotta">{investor.performance}</div>
-                <div className="text-sm text-nomade-off-white/80 font-medium">Performance</div>
+                <div className="text-metric-lg text-nomade-terracotta">{investor.performance}</div>
+                <div className="text-label-sm text-nomade-off-white/80">Performance</div>
               </div>
               
               <div className="flex space-x-3">
@@ -648,7 +648,7 @@ const InvestorDetailPage: React.FC = () => {
                 <button className="bg-nomade-green/20 text-nomade-off-white p-3 rounded-xl hover:bg-nomade-green/30 transition-colors">
                   <Phone size={20} />
                 </button>
-                <button className="bg-nomade-green text-nomade-off-white px-6 py-3 rounded-xl hover:bg-nomade-light-green transition-colors font-semibold flex items-center space-x-2">
+                <button className="bg-nomade-green text-nomade-off-white px-6 py-3 rounded-xl hover:bg-nomade-light-green transition-colors text-button flex items-center space-x-2">
                   <Download size={20} />
                   <span>Export Report</span>
                 </button>
@@ -670,7 +670,7 @@ const InvestorDetailPage: React.FC = () => {
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`flex-1 py-4 px-6 rounded-xl font-semibold transition-all duration-200 flex items-center justify-center space-x-2 ${
+                className={`flex-1 py-4 px-6 rounded-xl text-button transition-all duration-200 flex items-center justify-center space-x-2 ${
                   activeTab === tab.id
                     ? 'bg-nomade-green text-white shadow-lg'
                     : 'text-nomade-gray hover:bg-nomade-gray/5'

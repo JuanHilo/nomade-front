@@ -21,12 +21,9 @@ const Logo: React.FC<LogoProps> = ({ className = '', size = 'md', variant = 'dar
 
   return (
     <div className={`flex items-center space-x-2 ${className}`}>
-      <img 
-        src="/logo.png" 
-        alt="NOMADE Logo" 
-        className={`${sizeClasses[size]} object-contain ${variant === 'light' ? 'brightness-0 invert' : ''}`}
-      />
-
+      <div className={`${variant === 'light' ? 'text-white' : 'text-nomade-dark-brown'} ${textSizeClasses[size]} text-brand font-mono tracking-widest`}>
+        NOMADE
+      </div>
     </div>
   );
 };

@@ -59,7 +59,7 @@ const HotelOverview: React.FC<HotelOverviewProps> = ({ hotel }) => {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         {/* Hotel Information */}
         <div className="bg-white rounded-2xl p-8 shadow-lg border border-nomade-gray/10">
-          <h3 className="text-2xl font-bold text-nomade-dark-brown mb-6 flex items-center space-x-3">
+          <h3 className="text-heading-lg text-nomade-dark-brown mb-6 flex items-center space-x-3">
             <Building2 className="text-nomade-green" size={28} />
             <span>Hotel Key Facts</span>
           </h3>
@@ -106,7 +106,7 @@ const HotelOverview: React.FC<HotelOverviewProps> = ({ hotel }) => {
 
         {/* Property Gallery */}
         <div className="bg-white rounded-2xl p-8 shadow-lg border border-nomade-gray/10">
-          <h3 className="text-card-title mb-6 flex items-center space-x-3">
+          <h3 className="text-heading-lg mb-6 flex items-center space-x-3">
             <Building2 className="text-nomade-green" size={28} />
             <span>Property Gallery</span>
           </h3>
@@ -121,8 +121,8 @@ const HotelOverview: React.FC<HotelOverviewProps> = ({ hotel }) => {
           </div>
           
           <div className="space-y-3">
-            <h4 className="text-lg font-bold text-nomade-dark-brown">Location Highlights</h4>
-            <div className="space-y-2 text-sm text-nomade-gray">
+            <h4 className="text-heading-sm text-nomade-dark-brown">Location Highlights</h4>
+            <div className="space-y-2 text-body-sm text-nomade-gray">
               <p>• Beachfront location on Tulum's pristine Caribbean coastline</p>
               <p>• 10 minutes from Tulum Archaeological Zone</p>
               <p>• Direct access to white sand beaches and turquoise waters</p>
@@ -137,7 +137,7 @@ const HotelOverview: React.FC<HotelOverviewProps> = ({ hotel }) => {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         {/* Room Types */}
         <div className="bg-white rounded-2xl p-8 shadow-lg border border-nomade-gray/10">
-          <h3 className="text-2xl font-bold text-nomade-dark-brown mb-6 flex items-center space-x-3">
+          <h3 className="text-heading-lg text-nomade-dark-brown mb-6 flex items-center space-x-3">
             <Bed className="text-nomade-green" size={28} />
             <span>Room Distribution</span>
           </h3>
@@ -146,10 +146,10 @@ const HotelOverview: React.FC<HotelOverviewProps> = ({ hotel }) => {
             {roomTypes.map((room, index) => (
               <div key={index} className="bg-nomade-gray/5 rounded-xl p-4">
                 <div className="flex justify-between items-center mb-2">
-                  <h4 className="text-lg font-semibold text-nomade-dark-brown">{room.type}</h4>
-                  <span className="text-nomade-green font-bold">{room.percentage}</span>
+                  <h4 className="text-heading-sm text-nomade-dark-brown">{room.type}</h4>
+                  <span className="text-metric-sm text-nomade-green">{room.percentage}</span>
                 </div>
-                <div className="flex justify-between items-center text-sm text-nomade-gray">
+                <div className="flex justify-between items-center text-body-sm text-nomade-gray">
                   <span>{room.count} rooms</span>
                   <span>{room.size}</span>
                 </div>
@@ -166,7 +166,7 @@ const HotelOverview: React.FC<HotelOverviewProps> = ({ hotel }) => {
 
         {/* Restaurants & Bars */}
         <div className="bg-white rounded-2xl p-8 shadow-lg border border-nomade-gray/10">
-          <h3 className="text-2xl font-bold text-nomade-dark-brown mb-6 flex items-center space-x-3">
+          <h3 className="text-heading-lg text-nomade-dark-brown mb-6 flex items-center space-x-3">
             <Utensils className="text-nomade-green" size={28} />
             <span>Restaurant & Bars</span>
           </h3>
@@ -175,18 +175,18 @@ const HotelOverview: React.FC<HotelOverviewProps> = ({ hotel }) => {
             {restaurants.map((restaurant, index) => (
               <div key={index} className="bg-nomade-gray/5 rounded-xl p-4">
                 <div className="flex justify-between items-center mb-2">
-                  <h4 className="text-lg font-semibold text-nomade-dark-brown">{restaurant.name}</h4>
-                  <span className="text-nomade-terracotta font-bold">{restaurant.seats} seats</span>
+                  <h4 className="text-heading-sm text-nomade-dark-brown">{restaurant.name}</h4>
+                  <span className="text-metric-sm text-nomade-terracotta">{restaurant.seats} seats</span>
                 </div>
-                <div className="text-sm text-nomade-gray">
+                <div className="text-body-sm text-nomade-gray">
                   <span>{restaurant.type}</span>
                 </div>
               </div>
             ))}
             <div className="bg-nomade-green/10 rounded-xl p-4 border border-nomade-green/20">
               <div className="text-center">
-                <div className="text-2xl font-bold text-nomade-green">315-350</div>
-                <div className="text-sm text-nomade-gray font-medium">Total Capacity</div>
+                <div className="text-metric-lg text-nomade-green">315-350</div>
+                <div className="text-label text-nomade-gray">Total Capacity</div>
               </div>
             </div>
           </div>

@@ -14,13 +14,13 @@ const HomePage: React.FC = () => {
           {/* Left Content */}
           <div className="space-y-12 animate-fade-in">
             <div className="space-y-8">
-              <h1 className="text-7xl lg:text-8xl font-light leading-[0.85] tracking-[-0.02em] font-display">
+              <h1 className="text-display-xl lg:text-8xl leading-[0.85] tracking-[-0.02em]">
                 <span className="text-white">Redefining luxury</span>
-                <span className="block text-nomade-green font-serif italic">hospitality</span>
+                <span className="block text-nomade-green">hospitality</span>
                 <span className="block text-nomade-terracotta font-light">intelligence</span>
               </h1>
               
-              <p className="text-2xl text-white/90 leading-relaxed max-w-2xl font-light tracking-wide">
+              <p className="text-body-xl text-white/90 max-w-2xl">
                 Sophisticated analytics and investor relations platform crafted for NOMADE's luxury hotel properties.
               </p>
               

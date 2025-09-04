@@ -1,48 +1,64 @@
-@import url('https://fonts.googleapis.com/css2?family=Special+Elite&family=Poppins:wght@300;400;600;700&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 /*
- * NOMADE Luxury Hotel Analytics & AI App Stylesheet
- *
- * This file defines the global styles for the Nomade analytics application.  The
- * look and feel throughout the app reflect a "jungle chic" aesthetic – a
- * restrained palette of earth tones, generous whitespace and refined
- * typography.  Variables are used for brand colours to make customisation
- * straightforward and ensure consistency across pages.  Additional classes
- * describe layout primitives such as cards, grids and navigation controls.
+ * NOMADE Professional Analytics Platform Stylesheet
+ * 
+ * Standardized typography system for serious business analytics
+ * Built for clarity, hierarchy, and professional presentation
  */
 
 :root {
-  /* Core brand palette */
-  --colour-dark-brown: #1a150d;
-  --colour-green: #5d681d;
-  --colour-light-green: #99ab33;
-  --colour-off-white: #ebe9d8;
-  --colour-dark-grey: #222021;
-  --colour-white: #ffffff;
-  --colour-black: #000000;
-  --colour-terracotta: #ee735a;
-  --colour-tan: #b39d8c;
-  --colour-teal: #78b1bf;
-  --colour-orange-brown: #cc7d42;
-  --colour-dusty-rose: #b3837b;
-  --colour-sage: #82b074;
-  --colour-blue: #6176cb;
-  --colour-light-yellow: #ffe196;
-  --colour-lavender: #d094f2;
+  /* Professional Color Palette */
+  --color-dark-brown: #1a150d;
+  --color-green: #5d681d;
+  --color-light-green: #99ab33;
+  --color-off-white: #ebe9d8;
+  --color-dark-gray: #222021;
+  --color-gray: #666666;
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-terracotta: #ee735a;
+  --color-tan: #b39d8c;
+  --color-teal: #78b1bf;
+  --color-orange-brown: #cc7d42;
+  --color-dusty-rose: #b3837b;
+  --color-sage: #82b074;
+  --color-blue: #6176cb;
+  --color-light-yellow: #ffe196;
+  --color-lavender: #d094f2;
 
-  /* Sizing helpers */
+  /* Typography Scale */
+  --font-family-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-family-serif: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-family-mono: 'JetBrains Mono', 'Fira Code', monospace;
+  
+  /* Sizing and Layout */
   --nav-width: 240px;
   --radius: 10px;
   --transition: 0.3s ease;
   --card-padding: 1.5rem;
   --card-margin: 1rem;
+
+  /* Luxury Brand Palette */
+  --obsidian: #1B1B1A;
+  --jungle-green: #2F3B2D;
+  --muted-gold: #C7A34A;
+  --warm-gray: #6D675E;
+  --ivory: #FAF8F3;
+  --parchment: #F7F5F0;
+  --sand: #E8E2D5;
+
+  /* Additional brand colors for consistency */
+  --obsidian-rgb: 27, 27, 26;
+  --jungle-green-rgb: 47, 59, 45;
+  --muted-gold-rgb: 199, 163, 74;
+  --warm-gray-rgb: 109, 103, 94;
+  --sand-rgb: 232, 226, 213;
 }
 
-/* Global reset */
+/* Global Reset and Base Styles */
 * {
   margin: 0;
   padding: 0;
@@ -50,11 +66,14 @@
 }
 
 html, body {
-  font-family: 'Poppins', sans-serif;
-  color: var(--colour-dark-grey);
-  background-color: var(--colour-off-white);
+  font-family: var(--font-family-primary);
+  color: var(--color-dark-gray);
+  background-color: var(--color-off-white);
   height: 100%;
   scroll-behavior: smooth;
+  font-feature-settings: 'kern' 1, 'liga' 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 a {
@@ -69,153 +88,203 @@ img {
 }
 
 @layer base {
-  /* NOMADE Typography System - Standardized Across All Pages */
+  /* STANDARDIZED TYPOGRAPHY SYSTEM */
   
-  /* Hero & Display Typography */
-  .text-hero {
-    @apply text-6xl font-display font-medium tracking-tight leading-[1.1] text-nomade-dark-brown;
-    font-family: 'Lora', serif;
+  /* Display & Hero Typography */
+  .text-display-xl {
+    @apply text-7xl font-black tracking-tight leading-[0.9] text-nomade-dark-brown;
+    font-family: var(--font-family-primary);
   }
   
-  .text-hero-sub {
-    @apply text-xl font-sans font-normal leading-relaxed text-nomade-gray tracking-wide;
-    font-family: 'Inter', sans-serif;
+  .text-display-lg {
+    @apply text-6xl font-bold tracking-tight leading-[0.95] text-nomade-dark-brown;
+    font-family: var(--font-family-primary);
   }
   
-  /* Section & Page Titles */
-  .text-section-title {
-    @apply text-3xl font-display font-medium tracking-tight leading-tight text-nomade-dark-brown;
-    font-family: 'Lora', serif;
+  .text-display-md {
+    @apply text-5xl font-bold tracking-tight leading-tight text-nomade-dark-brown;
+    font-family: var(--font-family-primary);
   }
   
-  .text-page-title {
-    @apply text-4xl font-display font-bold tracking-tight text-nomade-dark-brown;
-    font-family: 'Lora', serif;
+  .text-display-sm {
+    @apply text-4xl font-bold tracking-tight text-nomade-dark-brown;
+    font-family: var(--font-family-primary);
   }
   
-  .text-card-title {
-    @apply text-2xl font-display font-semibold tracking-tight text-nomade-dark-brown;
-    font-family: 'Lora', serif;
+  /* Heading Typography */
+  .text-heading-xl {
+    @apply text-3xl font-bold tracking-tight text-nomade-dark-brown;
+    font-family: var(--font-family-primary);
   }
   
-  .text-subsection-title {
-    @apply text-xl font-display font-medium tracking-tight text-nomade-dark-brown;
-    font-family: 'Lora', serif;
+  .text-heading-lg {
+    @apply text-2xl font-bold tracking-tight text-nomade-dark-brown;
+    font-family: var(--font-family-primary);
   }
   
-  /* Hotel & Property Names */
-  .text-property-name {
-    @apply text-2xl font-display font-bold text-nomade-green tracking-tight;
-    font-family: 'Lora', serif;
+  .text-heading-md {
+    @apply text-xl font-semibold tracking-tight text-nomade-dark-brown;
+    font-family: var(--font-family-primary);
   }
   
-  .text-property-location {
-    @apply text-lg font-serif font-normal italic text-nomade-tan leading-relaxed;
-    font-family: 'Crimson Text', serif;
+  .text-heading-sm {
+    @apply text-lg font-semibold text-nomade-dark-brown;
+    font-family: var(--font-family-primary);
   }
   
-  /* Metrics & Numbers */
-  .text-metric-large {
-    @apply text-4xl font-display font-semibold tracking-tight text-nomade-dark-brown;
-    font-family: 'Lora', serif;
+  /* Body Typography */
+  .text-body-xl {
+    @apply text-xl font-normal leading-relaxed text-nomade-gray;
+    font-family: var(--font-family-primary);
   }
   
-  .text-metric-medium {
-    @apply text-2xl font-display font-bold tracking-tight text-nomade-green;
-    font-family: 'Lora', serif;
-  }
-  
-  .text-metric-small {
-    @apply text-lg font-sans font-semibold text-nomade-dark-brown;
-    font-family: 'Inter', sans-serif;
-  }
-  
-  .text-metric-label {
-    @apply text-xs font-sans font-medium uppercase tracking-[0.15em] text-nomade-gray;
-    font-family: 'Inter', sans-serif;
-  }
-  
-  /* Financial Values */
-  .text-financial-large {
-    @apply text-4xl font-display font-bold tracking-tight;
-    font-family: 'Lora', serif;
-    background: linear-gradient(135deg, #d4af37, #ffd700, #ffed4e);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-  
-  .text-financial-medium {
-    @apply text-2xl font-display font-semibold text-nomade-green;
-    font-family: 'Lora', serif;
-  }
-  
-  /* Body Text */
-  .text-body-elegant {
-    @apply text-lg font-serif font-normal leading-relaxed text-nomade-gray;
-    font-family: 'Crimson Text', serif;
+  .text-body-lg {
+    @apply text-lg font-normal leading-relaxed text-nomade-gray;
+    font-family: var(--font-family-primary);
   }
   
   .text-body {
-    @apply text-base font-sans font-normal leading-relaxed text-nomade-gray;
-    font-family: 'Inter', sans-serif;
+    @apply text-base font-normal leading-relaxed text-nomade-gray;
+    font-family: var(--font-family-primary);
   }
   
-  .text-body-small {
-    @apply text-sm font-sans font-normal leading-relaxed text-nomade-gray;
-    font-family: 'Inter', sans-serif;
+  .text-body-sm {
+    @apply text-sm font-normal leading-relaxed text-nomade-gray;
+    font-family: var(--font-family-primary);
   }
   
-  /* Navigation & UI */
-  .text-nav {
-    @apply text-sm font-sans font-medium tracking-wide;
-    font-family: 'Inter', sans-serif;
+  .text-body-xs {
+    @apply text-xs font-normal leading-relaxed text-nomade-gray;
+    font-family: var(--font-family-primary);
+  }
+  
+  /* UI Typography */
+  .text-label {
+    @apply text-sm font-medium text-nomade-dark-brown;
+    font-family: var(--font-family-primary);
+  }
+  
+  .text-label-sm {
+    @apply text-xs font-medium uppercase tracking-wider text-nomade-gray;
+    font-family: var(--font-family-primary);
   }
   
   .text-button {
-    @apply text-sm font-sans font-medium tracking-wide;
-    font-family: 'Inter', sans-serif;
+    @apply text-sm font-semibold tracking-wide;
+    font-family: var(--font-family-primary);
   }
   
-  .text-badge {
-    @apply text-xs font-sans font-semibold uppercase tracking-[0.1em];
-    font-family: 'Inter', sans-serif;
+  .text-button-lg {
+    @apply text-base font-semibold tracking-wide;
+    font-family: var(--font-family-primary);
   }
   
-  /* Status & Labels */
-  .text-status {
-    @apply text-xs font-sans font-bold uppercase tracking-[0.15em];
-    font-family: 'Inter', sans-serif;
+  /* Navigation Typography */
+  .text-nav {
+    @apply text-sm font-medium tracking-wide;
+    font-family: var(--font-family-primary);
   }
   
-  .text-secondary {
-    @apply text-sm font-sans font-medium text-nomade-gray;
-    font-family: 'Inter', sans-serif;
+  /* Metric Typography */
+  .text-metric-xl {
+    @apply text-4xl font-bold tracking-tight text-nomade-dark-brown;
+    font-family: var(--font-family-primary);
   }
   
-  /* Luxury Effects */
-  .letter-spacing-luxury {
-    letter-spacing: 0.02em;
+  .text-metric-lg {
+    @apply text-3xl font-bold tracking-tight text-nomade-dark-brown;
+    font-family: var(--font-family-primary);
   }
   
-  .text-gradient-gold {
+  .text-metric-md {
+    @apply text-2xl font-bold tracking-tight text-nomade-dark-brown;
+    font-family: var(--font-family-primary);
+  }
+  
+  .text-metric-sm {
+    @apply text-lg font-semibold text-nomade-dark-brown;
+    font-family: var(--font-family-primary);
+  }
+  
+  /* Financial Typography */
+  .text-financial-xl {
+    @apply text-4xl font-bold tracking-tight;
+    font-family: var(--font-family-primary);
     background: linear-gradient(135deg, #d4af37, #ffd700, #ffed4e);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
   
-  .text-gradient-green {
-    background: linear-gradient(135deg, #5d681d, #99ab33);
+  .text-financial-lg {
+    @apply text-3xl font-bold tracking-tight;
+    font-family: var(--font-family-primary);
+    background: linear-gradient(135deg, #d4af37, #ffd700, #ffed4e);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
+  
+  .text-financial-md {
+    @apply text-2xl font-semibold text-nomade-green;
+    font-family: var(--font-family-primary);
+  }
+  
+  /* Status & Badge Typography */
+  .text-status {
+    @apply text-xs font-bold uppercase tracking-wider;
+    font-family: var(--font-family-primary);
+  }
+  
+  .text-badge {
+    @apply text-xs font-semibold uppercase tracking-wider;
+    font-family: var(--font-family-primary);
+  }
+  
+  /* Code Typography */
+  .text-code {
+    @apply text-sm font-medium;
+    font-family: var(--font-family-mono);
+  }
+  
+  /* Brand Typography (Only for Logo) */
+  .text-brand {
+    @apply text-2xl font-bold tracking-widest;
+    font-family: var(--font-family-mono);
+    letter-spacing: 0.2em;
+  }
+  
+  .text-brand-lg {
+    @apply text-4xl font-bold tracking-widest;
+    font-family: var(--font-family-mono);
+    letter-spacing: 0.2em;
+  }
+
+  /* Luxury brand color utilities */
+  .bg-obsidian { background-color: var(--obsidian); }
+  .bg-jungle-green { background-color: var(--jungle-green); }
+  .bg-muted-gold { background-color: var(--muted-gold); }
+  .bg-warm-gray { background-color: var(--warm-gray); }
+  .bg-ivory { background-color: var(--ivory); }
+  .bg-parchment { background-color: var(--parchment); }
+  .bg-sand { background-color: var(--sand); }
+
+  .text-obsidian { color: var(--obsidian); }
+  .text-jungle-green { color: var(--jungle-green); }
+  .text-muted-gold { color: var(--muted-gold); }
+  .text-warm-gray { color: var(--warm-gray); }
+  .text-ivory { color: var(--ivory); }
+  .text-parchment { color: var(--parchment); }
+  .text-sand { color: var(--sand); }
+
+  .border-obsidian { border-color: var(--obsidian); }
+  .border-jungle-green { border-color: var(--jungle-green); }
+  .border-muted-gold { border-color: var(--muted-gold); }
+  .border-warm-gray { border-color: var(--warm-gray); }
+  .border-sand { border-color: var(--sand); }
 }
 
-/* Top navigation bar for public pages such as the home page.  It floats on
- * top of the hero imagery and remains subtle so as not to distract from
- * the content below. */
+/* Legacy styles maintained for compatibility */
 .topbar {
   position: absolute;
   top: 0;
@@ -229,10 +298,11 @@ img {
 }
 
 .topbar .logo {
-  font-family: 'Special Elite', monospace;
+  font-family: var(--font-family-mono);
   font-size: 1.5rem;
-  color: var(--colour-off-white);
+  color: var(--color-off-white);
   letter-spacing: 2px;
+  font-weight: 600;
 }
 
 .topbar .actions {
@@ -248,29 +318,30 @@ img {
   transition: background-color var(--transition), color var(--transition);
   border: none;
   text-align: center;
+  font-family: var(--font-family-primary);
 }
 
 .button.primary {
-  background-color: var(--colour-green);
-  color: var(--colour-off-white);
+  background-color: var(--color-green);
+  color: var(--color-off-white);
 }
 
 .button.primary:hover {
-  background-color: var(--colour-light-green);
+  background-color: var(--color-light-green);
 }
 
 .button.outline {
   background-color: transparent;
-  border: 2px solid var(--colour-off-white);
-  color: var(--colour-off-white);
+  border: 2px solid var(--color-off-white);
+  color: var(--color-off-white);
 }
 
 .button.outline:hover {
-  background-color: var(--colour-off-white);
-  color: var(--colour-dark-brown);
+  background-color: var(--color-off-white);
+  color: var(--color-dark-brown);
 }
 
-/* Hero section on the home page */
+/* Hero section */
 .hero {
   position: relative;
   width: 100%;
@@ -291,7 +362,7 @@ img {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(26, 21, 13, 0.5); /* dark overlay to increase contrast */
+  background: rgba(26, 21, 13, 0.5);
   z-index: 1;
 }
 
@@ -300,21 +371,24 @@ img {
   z-index: 2;
   padding: 3rem;
   max-width: 50%;
-  color: var(--colour-off-white);
+  color: var(--color-off-white);
   text-align: left;
 }
 
 .hero h1 {
-  font-family: 'Special Elite', monospace;
+  font-family: var(--font-family-mono);
   font-size: 3rem;
   margin-bottom: 1rem;
   line-height: 1.2;
+  font-weight: 600;
+  letter-spacing: 0.1em;
 }
 
 .hero p {
   font-size: 1.2rem;
   margin-bottom: 2rem;
   opacity: 0.85;
+  font-family: var(--font-family-primary);
 }
 
 .hero .cta {
@@ -356,11 +430,13 @@ img {
 }
 
 .login-box h2 {
-  font-family: 'Special Elite', monospace;
+  font-family: var(--font-family-mono);
   margin-bottom: 1rem;
   font-size: 2rem;
-  color: var(--colour-dark-brown);
+  color: var(--color-dark-brown);
   text-align: center;
+  font-weight: 600;
+  letter-spacing: 0.1em;
 }
 
 .login-box form {
@@ -372,30 +448,34 @@ img {
 .login-box label {
   font-weight: 600;
   margin-bottom: 0.25rem;
-  color: var(--colour-dark-brown);
+  color: var(--color-dark-brown);
+  font-family: var(--font-family-primary);
 }
 
 .login-box input {
   padding: 0.75rem;
-  border: 1px solid var(--colour-tan);
+  border: 1px solid var(--color-tan);
   border-radius: var(--radius);
   font-size: 1rem;
-  background-color: var(--colour-off-white);
-  color: var(--colour-dark-brown);
+  background-color: var(--color-off-white);
+  color: var(--color-dark-brown);
+  font-family: var(--font-family-primary);
 }
 
 .login-box .submit {
   margin-top: 1rem;
-  background-color: var(--colour-green);
-  color: var(--colour-off-white);
+  background-color: var(--color-green);
+  color: var(--color-off-white);
   border: none;
+  font-family: var(--font-family-primary);
+  font-weight: 600;
 }
 
 .login-box .submit:hover {
-  background-color: var(--colour-light-green);
+  background-color: var(--color-light-green);
 }
 
-/* Layout for authenticated pages (dashboard, hotels, investors, reports, chatbot) */
+/* Layout for authenticated pages */
 .app-container {
   display: flex;
   min-height: 100vh;
@@ -404,8 +484,8 @@ img {
 /* Sidebar navigation */
 .sidebar {
   width: var(--nav-width);
-  background-color: var(--colour-dark-brown);
-  color: var(--colour-off-white);
+  background-color: var(--color-dark-brown);
+  color: var(--color-off-white);
   display: flex;
   flex-direction: column;
   padding: 2rem 0;
@@ -415,10 +495,12 @@ img {
 }
 
 .sidebar .brand {
-  font-family: 'Special Elite', monospace;
+  font-family: var(--font-family-mono);
   font-size: 1.5rem;
   text-align: center;
   margin-bottom: 2rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
 }
 
 .sidebar nav {
@@ -436,14 +518,15 @@ img {
 .sidebar a {
   display: block;
   padding: 0.75rem 1.5rem;
-  color: var(--colour-off-white);
+  color: var(--color-off-white);
   font-weight: 500;
   transition: background-color var(--transition), color var(--transition);
+  font-family: var(--font-family-primary);
 }
 
 .sidebar a:hover, .sidebar a.active {
-  background-color: var(--colour-green);
-  color: var(--colour-off-white);
+  background-color: var(--color-green);
+  color: var(--color-off-white);
 }
 
 .sidebar .logout {
@@ -452,29 +535,38 @@ img {
   cursor: pointer;
   text-align: center;
   transition: background-color var(--transition);
+  font-family: var(--font-family-primary);
 }
 
 .sidebar .logout:hover {
-  background-color: var(--colour-orange-brown);
+  background-color: var(--color-orange-brown);
 }
 
 /* Main content area */
 .content {
   flex-grow: 1;
-  background-color: var(--colour-off-white);
+  background-color: var(--color-off-white);
   padding: 2rem;
 }
 
-/* Headings */
-h1, h2, h3 {
-  font-family: 'Special Elite', monospace;
-  color: var(--colour-dark-brown);
+/* Standardized headings */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-family-primary);
+  color: var(--color-dark-brown);
   margin-bottom: 0.5rem;
+  font-weight: 700;
 }
+
+h1 { @apply text-display-lg; }
+h2 { @apply text-display-sm; }
+h3 { @apply text-heading-xl; }
+h4 { @apply text-heading-lg; }
+h5 { @apply text-heading-md; }
+h6 { @apply text-heading-sm; }
 
 /* Card component */
 .card {
-  background-color: var(--colour-white);
+  background-color: var(--color-white);
   border-radius: var(--radius);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
   padding: var(--card-padding);
@@ -482,10 +574,11 @@ h1, h2, h3 {
 }
 
 .card-title {
-  font-family: 'Special Elite', monospace;
+  font-family: var(--font-family-primary);
   margin-bottom: 0.5rem;
   font-size: 1.25rem;
-  color: var(--colour-dark-brown);
+  color: var(--color-dark-brown);
+  font-weight: 700;
 }
 
 /* KPI cards */
@@ -501,8 +594,8 @@ h1, h2, h3 {
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  background-color: var(--colour-green);
-  color: var(--colour-off-white);
+  background-color: var(--color-green);
+  color: var(--color-off-white);
   padding: 1.5rem;
   border-radius: var(--radius);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -512,11 +605,13 @@ h1, h2, h3 {
   font-size: 0.9rem;
   opacity: 0.8;
   margin-bottom: 0.25rem;
+  font-family: var(--font-family-primary);
 }
 
 .kpi-card .value {
   font-size: 2rem;
   font-weight: bold;
+  font-family: var(--font-family-primary);
 }
 
 /* Chart containers */
@@ -528,7 +623,7 @@ h1, h2, h3 {
 }
 
 .chart-box {
-  background-color: var(--colour-white);
+  background-color: var(--color-white);
   border-radius: var(--radius);
   padding: 1rem;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
@@ -544,17 +639,19 @@ h1, h2, h3 {
   width: 100%;
   border-collapse: collapse;
   margin-bottom: 2rem;
+  font-family: var(--font-family-primary);
 }
 
 .data-table thead {
-  background-color: var(--colour-green);
-  color: var(--colour-off-white);
+  background-color: var(--color-green);
+  color: var(--color-off-white);
 }
 
 .data-table th, .data-table td {
   padding: 0.75rem 1rem;
   text-align: left;
   border-bottom: 1px solid #ddd;
+  font-family: var(--font-family-primary);
 }
 
 .data-table tr:nth-child(even) {
@@ -573,7 +670,7 @@ h1, h2, h3 {
 }
 
 .hotel-card, .investor-card {
-  background-color: var(--colour-white);
+  background-color: var(--color-white);
   border-radius: var(--radius);
   overflow: hidden;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
@@ -595,15 +692,17 @@ h1, h2, h3 {
 }
 
 .hotel-card h3, .investor-card h3 {
-  font-family: 'Special Elite', monospace;
+  font-family: var(--font-family-primary);
   margin: 0;
   font-size: 1.3rem;
-  color: var(--colour-dark-brown);
+  color: var(--color-dark-brown);
+  font-weight: 700;
 }
 
 .hotel-card p, .investor-card p {
   font-size: 0.9rem;
-  color: var(--colour-dark-grey);
+  color: var(--color-dark-grey);
+  font-family: var(--font-family-primary);
 }
 
 .hotel-card .actions, .investor-card .actions {
@@ -615,15 +714,16 @@ h1, h2, h3 {
   padding: 0.5rem;
   border: none;
   border-radius: var(--radius);
-  background-color: var(--colour-green);
-  color: var(--colour-off-white);
+  background-color: var(--color-green);
+  color: var(--color-off-white);
   font-weight: 600;
   cursor: pointer;
   transition: background-color var(--transition);
+  font-family: var(--font-family-primary);
 }
 
 .hotel-card .actions button:hover, .investor-card .actions button:hover {
-  background-color: var(--colour-light-green);
+  background-color: var(--color-light-green);
 }
 
 /* Search bar */
@@ -636,26 +736,28 @@ h1, h2, h3 {
 .search-bar input {
   flex-grow: 1;
   padding: 0.75rem 1rem;
-  border: 1px solid var(--colour-tan);
+  border: 1px solid var(--color-tan);
   border-radius: var(--radius);
   font-size: 1rem;
-  background-color: var(--colour-off-white);
+  background-color: var(--color-off-white);
   margin-right: 1rem;
+  font-family: var(--font-family-primary);
 }
 
 .search-bar button {
   padding: 0.75rem 1.5rem;
   border: none;
   border-radius: var(--radius);
-  background-color: var(--colour-green);
-  color: var(--colour-off-white);
+  background-color: var(--color-green);
+  color: var(--color-off-white);
   font-weight: 600;
   cursor: pointer;
   transition: background-color var(--transition);
+  font-family: var(--font-family-primary);
 }
 
 .search-bar button:hover {
-  background-color: var(--colour-light-green);
+  background-color: var(--color-light-green);
 }
 
 /* Report page */
@@ -668,15 +770,16 @@ h1, h2, h3 {
 
 .report-controls select {
   padding: 0.5rem 1rem;
-  border: 1px solid var(--colour-tan);
+  border: 1px solid var(--color-tan);
   border-radius: var(--radius);
-  background-color: var(--colour-white);
+  background-color: var(--color-white);
   font-size: 1rem;
-  color: var(--colour-dark-brown);
+  color: var(--color-dark-brown);
+  font-family: var(--font-family-primary);
 }
 
 .report-container {
-  background-color: var(--colour-white);
+  background-color: var(--color-white);
   padding: 2rem;
   border-radius: var(--radius);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
@@ -686,11 +789,13 @@ h1, h2, h3 {
 
 .report-container h3 {
   margin-top: 1.5rem;
+  font-family: var(--font-family-primary);
 }
 
 .report-container p {
   margin-bottom: 1rem;
   line-height: 1.6;
+  font-family: var(--font-family-primary);
 }
 
 /* Chatbot page */
@@ -732,21 +837,22 @@ h1, h2, h3 {
   max-width: 70%;
   padding: 0.75rem 1rem;
   border-radius: var(--radius);
-  color: var(--colour-off-white);
+  color: var(--color-off-white);
   line-height: 1.4;
   position: relative;
+  font-family: var(--font-family-primary);
 }
 
 .chat-message.user {
   align-self: flex-end;
-  background-color: var(--colour-green);
-  color: var(--colour-off-white);
+  background-color: var(--color-green);
+  color: var(--color-off-white);
 }
 
 .chat-message.bot {
   align-self: flex-start;
-  background-color: var(--colour-dark-brown);
-  color: var(--colour-off-white);
+  background-color: var(--color-dark-brown);
+  color: var(--color-off-white);
 }
 
 .chat-input {
@@ -759,24 +865,22 @@ h1, h2, h3 {
 .chat-input input {
   flex-grow: 1;
   padding: 0.75rem;
-  border: 1px solid var(--colour-tan);
+  border: 1px solid var(--color-tan);
   border-radius: var(--radius);
   font-size: 1rem;
-  background-color: var(--colour-off-white);
+  background-color: var(--color-off-white);
   margin-right: 0.5rem;
+  font-family: var(--font-family-primary);
 }
 
 .chat-input button {
   padding: 0.75rem 1rem;
   border: none;
   border-radius: var(--radius);
-  background-color: var(--colour-green);
-  color: var(--colour-off-white);
+  background-color: var(--color-green);
+  color: var(--color-off-white);
   font-weight: 600;
   cursor: pointer;
   transition: background-color var(--transition);
-}
-
-.chat-input button:hover {
-  background-color: var(--colour-light-green);
+  font-family: var(--font-family-primary);
 }

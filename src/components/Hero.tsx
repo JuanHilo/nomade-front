@@ -37,30 +37,30 @@ const Hero: React.FC<HeroProps> = ({
       <div className="relative z-10 max-w-7xl mx-auto px-8 py-12">
         <div className="flex items-center justify-between">
           <div className="space-y-4">
-            <h1 className="text-4xl font-bold text-nomade-off-white tracking-tight">
+            <h1 className="text-display-sm text-nomade-off-white">
               {title}
             </h1>
-            <p className="text-lg text-nomade-off-white/90 font-medium">
+            <p className="text-body-lg text-nomade-off-white/90">
               {subtitle}
             </p>
           </div>
           
           <div className="flex items-center space-x-8">
             <div className="text-right">
-              <div className="text-2xl font-bold text-nomade-green">{leftMetric.value}</div>
-              <div className="text-sm text-nomade-off-white/80 font-medium">{leftMetric.label}</div>
+              <div className="text-metric-lg text-nomade-green">{leftMetric.value}</div>
+              <div className="text-label-sm text-nomade-off-white/80">{leftMetric.label}</div>
             </div>
             
             <div className="w-px h-16 bg-nomade-off-white/30"></div>
             
             <div className="text-right">
-              <div className="text-2xl font-bold text-nomade-terracotta">{rightMetric.value}</div>
-              <div className="text-sm text-nomade-off-white/80 font-medium">{rightMetric.label}</div>
+              <div className="text-metric-lg text-nomade-terracotta">{rightMetric.value}</div>
+              <div className="text-label-sm text-nomade-off-white/80">{rightMetric.label}</div>
             </div>
             
             <button 
               onClick={actionButton.onClick}
-              className="bg-nomade-green text-nomade-off-white px-6 py-3 rounded-xl hover:bg-nomade-light-green transition-all duration-300 font-semibold shadow-xl flex items-center space-x-2"
+              className="bg-nomade-green text-nomade-off-white px-6 py-3 rounded-xl hover:bg-nomade-light-green transition-all duration-300 text-button shadow-xl flex items-center space-x-2"
             >
               <ActionIcon size={20} />
               <span>{actionButton.text}</span>

@@ -27,8 +27,8 @@ const LoginPage: React.FC = () => {
         <div className="absolute inset-0 bg-gradient-to-br from-nomade-dark-brown/60 to-nomade-green/40"></div>
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="text-center text-white space-y-6 px-8">
-            <h2 className="text-4xl font-serif font-bold">Welcome to NOMADE</h2>
-            <p className="text-xl opacity-90">Where luxury meets intelligence</p>
+            <h2 className="text-display-sm">Welcome to NOMADE</h2>
+            <p className="text-body-xl opacity-90">Where luxury meets intelligence</p>
           </div>
         </div>
       </div>
@@ -47,10 +47,10 @@ const LoginPage: React.FC = () => {
           <div className="space-y-6">
             <div className="text-center space-y-4">
               <Logo size="lg" variant="dark" />
-              <h1 className="text-3xl font-serif font-bold text-nomade-dark-brown">
+              <h1 className="text-heading-xl text-nomade-dark-brown">
                 Sign In
               </h1>
-              <p className="text-nomade-gray">
+              <p className="text-body text-nomade-gray">
                 Access your luxury hotel analytics platform
               </p>
             </div>
@@ -58,7 +58,7 @@ const LoginPage: React.FC = () => {
             <form onSubmit={handleLogin} className="space-y-6">
               <div className="space-y-4">
                 <div>
-                  <label className="block text-sm font-semibold text-nomade-dark-brown mb-2">
+                  <label className="block text-label text-nomade-dark-brown mb-2">
                     Email Address
                   </label>
                   <input
@@ -72,7 +72,7 @@ const LoginPage: React.FC = () => {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-nomade-dark-brown mb-2">
+                  <label className="block text-label text-nomade-dark-brown mb-2">
                     Password
                   </label>
                   <div className="relative">
@@ -105,7 +105,7 @@ const LoginPage: React.FC = () => {
                 </label>
                 <Link
                   to="#"
-                  className="text-sm text-nomade-green hover:text-nomade-light-green transition-colors"
+                  className="text-body-sm text-nomade-green hover:text-nomade-light-green transition-colors"
                 >
                   Forgot password?
                 </Link>
@@ -113,7 +113,7 @@ const LoginPage: React.FC = () => {
 
               <button
                 type="submit"
-                className="w-full bg-nomade-green text-white py-3 rounded-xl hover:bg-nomade-light-green transition-all duration-300 hover:transform hover:scale-105 font-semibold shadow-xl"
+                className="w-full bg-nomade-green text-white py-3 rounded-xl hover:bg-nomade-light-green transition-all duration-300 hover:transform hover:scale-105 text-button shadow-xl"
               >
                 Sign In to Dashboard
               </button>
@@ -121,7 +121,7 @@ const LoginPage: React.FC = () => {
 
             <div className="text-center text-sm text-nomade-gray">
               Need access?{' '}
-              <Link to="#" className="text-nomade-green hover:text-nomade-light-green font-semibold">
+              <Link to="#" className="text-nomade-green hover:text-nomade-light-green text-button">
                 Contact your administrator
               </Link>
             </div>

@@ -98,8 +98,8 @@ const InvestorsPage: React.FC = () => {
               <TrendingUp size={24} />
             </div>
             <div>
-              <h3 className="text-metric-medium text-white">{investors.length}</h3>
-              <p className="text-body-small text-white/80">Active Investors</p>
+              <h3 className="text-metric-md text-white">{investors.length}</h3>
+              <p className="text-body-sm text-white/80">Active Investors</p>
             </div>
           </div>
         </div>
@@ -110,8 +110,8 @@ const InvestorsPage: React.FC = () => {
               <TrendingUp size={24} />
             </div>
             <div>
-              <h3 className="text-financial-medium text-white">€{totalInvestment.toFixed(1)}M</h3>
-              <p className="text-body-small text-white/80">Total Investments</p>
+              <h3 className="text-financial-md text-white">€{totalInvestment.toFixed(1)}M</h3>
+              <p className="text-body-sm text-white/80">Total Investments</p>
             </div>
           </div>
         </div>
@@ -122,8 +122,8 @@ const InvestorsPage: React.FC = () => {
               <Building2 size={24} />
             </div>
             <div>
-              <h3 className="text-metric-medium text-white">2.2</h3>
-              <p className="text-body-small text-white/80">Avg. Properties/Investor</p>
+              <h3 className="text-metric-md text-white">2.2</h3>
+              <p className="text-body-sm text-white/80">Avg. Properties/Investor</p>
             </div>
           </div>
         </div>
@@ -168,7 +168,7 @@ const InvestorsPage: React.FC = () => {
                   className="w-16 h-16 rounded-full object-cover border-2 border-nomade-green/20"
                 />
                 <div>
-                  <h3 className="text-card-title">{investor.name}</h3>
+                  <h3 className="text-heading-lg">{investor.name}</h3>
                   <div className="flex items-center space-x-2">
                     <span className={`px-2 py-1 rounded-full text-xs font-semibold ${
                       investor.type === 'Institutional' 
@@ -192,25 +192,25 @@ const InvestorsPage: React.FC = () => {
             <div className="space-y-3 mb-6">
               <div className="flex items-center space-x-3 text-nomade-gray">
                 <Mail size={16} />
-                <span className="text-body-small">{investor.email}</span>
+                <span className="text-body-sm">{investor.email}</span>
               </div>
               <div className="flex items-center space-x-3 text-nomade-gray">
                 <Phone size={16} />
-                <span className="text-body-small">{investor.phone}</span>
+                <span className="text-body-sm">{investor.phone}</span>
               </div>
               <div className="flex items-center space-x-3 text-nomade-gray">
                 <MapPin size={16} />
-                <span className="text-body-small">{investor.location}</span>
+                <span className="text-body-sm">{investor.location}</span>
               </div>
             </div>
 
             {/* Investment Details */}
             <div className="bg-nomade-gray/5 rounded-xl p-4 mb-6">
               <div className="flex items-center justify-between mb-3">
-                <span className="text-metric-label">TOTAL INVESTMENT</span>
-                <span className="text-metric-medium">{investor.totalInvestment}</span>
+                <span className="text-label-sm">TOTAL INVESTMENT</span>
+                <span className="text-metric-md">{investor.totalInvestment}</span>
               </div>
-              <div className="flex items-center justify-between text-body-small">
+              <div className="flex items-center justify-between text-body-sm">
                 <span>Joined {investor.joinedDate}</span>
                 <span>{investor.duration}</span>
               </div>
@@ -218,10 +218,10 @@ const InvestorsPage: React.FC = () => {
 
             {/* Invested Projects */}
             <div className="mb-6">
-              <h4 className="text-metric-label mb-3">INVESTED PROJECTS</h4>
+              <h4 className="text-label-sm mb-3">INVESTED PROJECTS</h4>
               <div className="space-y-2">
                 {investor.projects.map((project, index) => (
-                  <div key={index} className="text-body-small text-nomade-dark-brown bg-nomade-green/5 px-3 py-2 rounded-lg">
+                  <div key={index} className="text-body-sm text-nomade-dark-brown bg-nomade-green/5 px-3 py-2 rounded-lg">
                     {project}
                   </div>
                 ))}
@@ -231,7 +231,7 @@ const InvestorsPage: React.FC = () => {
             {/* Action Button */}
             <Link 
               to={`/investors/${investor.id}`}
-              className="w-full bg-nomade-green text-white py-3 rounded-xl hover:bg-nomade-light-green transition-all duration-300 font-semibold flex items-center justify-center space-x-2 shadow-lg"
+              className="w-full bg-nomade-green text-white py-3 rounded-xl hover:bg-nomade-light-green transition-all duration-300 text-button flex items-center justify-center space-x-2 shadow-lg"
             >
               <Eye size={18} />
               <span>View Full Profile</span>
