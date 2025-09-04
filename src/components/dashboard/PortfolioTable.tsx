@@ -48,6 +48,7 @@ const PortfolioTable: React.FC = () => {
       <div className="relative z-10">
       <div className="flex items-center justify-between mb-6">
         <div className="flex items-center space-x-3">
+            <Building2 className="text-white" size={20} />
           </div>
           <div>
             <h3 className="text-xl font-serif tracking-wide text-white">Hotel Portfolio</h3>
