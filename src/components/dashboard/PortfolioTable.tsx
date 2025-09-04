@@ -57,9 +57,6 @@ const PortfolioTable: React.FC = () => {
               <p className="text-base mt-1 text-nomade-tan/80">Performance across distinguished destinations</p>
             </div>
           </div>
-          <button className="backdrop-blur-sm px-6 py-3 rounded-xl border hover:bg-nomade-tan/30 hover:text-nomade-off-white transition-all duration-300 text-sm font-medium shadow-lg bg-nomade-tan/20 text-nomade-tan border-nomade-tan/30 hover:transform hover:scale-105">
-            Export Portfolio
-          </button>
         </div>
 
         <div className="overflow-x-auto">
