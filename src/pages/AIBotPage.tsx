@@ -126,13 +126,13 @@ const AIBotPage: React.FC = () => {
   const CustomTooltip = ({ active, payload, label }: any) => {
     if (active && payload && payload.length) {
       return (
-        <div className="bg-black/90 backdrop-blur-xl border border-cyan-400/30 rounded-xl p-4 shadow-2xl">
-          <p className="text-cyan-100 font-semibold mb-3 text-sm">{label}</p>
+        <div className="bg-nomade-dark-brown/90 backdrop-blur-xl border border-nomade-tan/30 rounded-xl p-4 shadow-2xl">
+          <p className="text-nomade-off-white font-semibold mb-3 text-sm">{label}</p>
           {payload.map((entry: any, index: number) => (
-            <p key={index} className="text-cyan-200/90 text-xs flex items-center space-x-2">
-              <span className="inline-block w-3 h-3 rounded-full border border-cyan-400/50" style={{ backgroundColor: entry.color }}></span>
-              <span className="font-medium text-cyan-100">{entry.name}:</span> 
-              <span className="text-cyan-300 font-bold">{entry.value}</span>
+            <p key={index} className="text-nomade-off-white/90 text-xs flex items-center space-x-2">
+              <span className="inline-block w-3 h-3 rounded-full border border-nomade-tan/50" style={{ backgroundColor: entry.color }}></span>
+              <span className="font-medium text-nomade-off-white">{entry.name}:</span> 
+              <span className="text-nomade-tan font-bold">{entry.value}</span>
             </p>
           ))}
         </div>
@@ -149,20 +149,20 @@ const AIBotPage: React.FC = () => {
             <LineChart data={chart.data}>
               <defs>
                 <linearGradient id="revenueGradient" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="5%" stopColor="#00ff88" stopOpacity={0.3}/>
-                  <stop offset="95%" stopColor="#00ff88" stopOpacity={0.05}/>
+                  <stop offset="5%" stopColor="#5d681d" stopOpacity={0.3}/>
+                  <stop offset="95%" stopColor="#5d681d" stopOpacity={0.05}/>
                 </linearGradient>
                 <linearGradient id="predictionGradient" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="5%" stopColor="#0099ff" stopOpacity={0.3}/>
-                  <stop offset="95%" stopColor="#0099ff" stopOpacity={0.05}/>
+                  <stop offset="5%" stopColor="#b39d8c" stopOpacity={0.3}/>
+                  <stop offset="95%" stopColor="#b39d8c" stopOpacity={0.05}/>
                 </linearGradient>
               </defs>
-              <CartesianGrid strokeDasharray="2 2" stroke="#00ff88" strokeOpacity={0.1} />
-              <XAxis dataKey="month" stroke="#00ff88" fontSize={11} />
-              <YAxis stroke="#00ff88" fontSize={11} />
+              <CartesianGrid strokeDasharray="2 2" stroke="#b39d8c" strokeOpacity={0.2} />
+              <XAxis dataKey="month" stroke="#b39d8c" fontSize={11} />
+              <YAxis stroke="#b39d8c" fontSize={11} />
               <Tooltip content={<CustomTooltip />} />
-              <Area type="monotone" dataKey="revenue" stroke="#00ff88" strokeWidth={2} fill="url(#revenueGradient)" name="Revenue (€M)" />
-              <Line type="monotone" dataKey="prediction" stroke="#0099ff" strokeWidth={2} strokeDasharray="4 4" name="AI Prediction" dot={{ r: 3, fill: "#0099ff" }} />
+              <Area type="monotone" dataKey="revenue" stroke="#5d681d" strokeWidth={2} fill="url(#revenueGradient)" name="Revenue (€M)" />
+              <Line type="monotone" dataKey="prediction" stroke="#b39d8c" strokeWidth={2} strokeDasharray="4 4" name="AI Prediction" dot={{ r: 3, fill: "#b39d8c" }} />
             </LineChart>
           </ResponsiveContainer>
         );
@@ -170,12 +170,12 @@ const AIBotPage: React.FC = () => {
         return (
           <ResponsiveContainer width="100%" height={240}>
             <BarChart data={chart.data}>
-              <CartesianGrid strokeDasharray="2 2" stroke="#00ff88" strokeOpacity={0.1} />
-              <XAxis dataKey="month" stroke="#00ff88" fontSize={11} />
-              <YAxis stroke="#00ff88" fontSize={11} />
+              <CartesianGrid strokeDasharray="2 2" stroke="#b39d8c" strokeOpacity={0.2} />
+              <XAxis dataKey="month" stroke="#b39d8c" fontSize={11} />
+              <YAxis stroke="#b39d8c" fontSize={11} />
               <Tooltip content={<CustomTooltip />} />
-              <Bar dataKey="revenue" fill="#00ff88" name="Revenue (€M)" radius={[2, 2, 0, 0]} />
-              <Bar dataKey="aiPrediction" fill="#0099ff" name="AI Prediction" radius={[2, 2, 0, 0]} />
+              <Bar dataKey="revenue" fill="#5d681d" name="Revenue (€M)" radius={[2, 2, 0, 0]} />
+              <Bar dataKey="aiPrediction" fill="#b39d8c" name="AI Prediction" radius={[2, 2, 0, 0]} />
             </BarChart>
           </ResponsiveContainer>
         );
@@ -208,60 +208,60 @@ const AIBotPage: React.FC = () => {
   return (
     <div className="flex-1 px-8 py-6 flex flex-col min-h-screen">
       {/* AI Status Bar */}
-      <div className="mb-6 bg-gradient-to-r from-black/90 via-gray-900/95 to-black/90 backdrop-blur-xl rounded-2xl p-4 border border-cyan-400/20 shadow-2xl">
+      <div className="mb-6 bg-nomade-dark-brown/95 backdrop-blur-xl rounded-2xl p-4 border border-nomade-tan/20 shadow-2xl">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-4">
             <div className="relative">
-              <div className="w-3 h-3 bg-cyan-400 rounded-full animate-pulse"></div>
-              <div className="absolute inset-0 w-3 h-3 bg-cyan-400 rounded-full animate-ping opacity-30"></div>
+              <div className="w-3 h-3 bg-nomade-tan rounded-full animate-pulse"></div>
+              <div className="absolute inset-0 w-3 h-3 bg-nomade-tan rounded-full animate-ping opacity-30"></div>
             </div>
             <div className="flex items-center space-x-3">
-              <Brain className="text-cyan-400" size={20} />
-              <span className="text-cyan-100 font-semibold">FinGPT Neural Network</span>
-              <span className="text-cyan-400/80 text-sm">• Active • Processing 847 data points/sec</span>
+              <Brain className="text-nomade-tan" size={20} />
+              <span className="text-nomade-off-white font-semibold">FinGPT Neural Network</span>
+              <span className="text-nomade-tan/80 text-sm">• Active • Processing 847 data points/sec</span>
             </div>
           </div>
           <div className="flex items-center space-x-6 text-xs">
             <div className="flex items-center space-x-2">
-              <Cpu className="text-emerald-400" size={16} />
-              <span className="text-emerald-400">GPU: 98.7%</span>
+              <Cpu className="text-nomade-green" size={16} />
+              <span className="text-nomade-green">GPU: 98.7%</span>
             </div>
             <div className="flex items-center space-x-2">
-              <Database className="text-blue-400" size={16} />
-              <span className="text-blue-400">Memory: 2.4TB</span>
+              <Database className="text-nomade-terracotta" size={16} />
+              <span className="text-nomade-terracotta">Memory: 2.4TB</span>
             </div>
             <div className="flex items-center space-x-2">
-              <Globe className="text-purple-400" size={16} />
-              <span className="text-purple-400">Latency: 12ms</span>
+              <Globe className="text-nomade-sage-green" size={16} />
+              <span className="text-nomade-sage-green">Latency: 12ms</span>
             </div>
           </div>
         </div>
       </div>
 
       {/* Main Chat Interface */}
-      <div className="flex-1 bg-gradient-to-br from-black/95 via-gray-900/98 to-black/95 backdrop-blur-2xl rounded-3xl shadow-2xl overflow-hidden flex flex-col border border-cyan-400/10">
+      <div className="flex-1 bg-nomade-dark-brown/95 backdrop-blur-2xl rounded-3xl shadow-2xl overflow-hidden flex flex-col border border-nomade-tan/20">
         {/* Chat Header */}
-        <div className="bg-gradient-to-r from-black/80 via-gray-900/90 to-black/80 backdrop-blur-xl p-6 border-b border-cyan-400/20">
+        <div className="bg-nomade-dark-brown/90 backdrop-blur-xl p-6 border-b border-nomade-tan/20">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-4">
               <div className="relative">
-                <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-cyan-400 via-blue-500 to-purple-600 flex items-center justify-center shadow-xl">
-                  <Brain className="text-white" size={24} />
+                <div className="w-12 h-12 rounded-2xl bg-nomade-tan/20 border border-nomade-tan/30 flex items-center justify-center shadow-xl backdrop-blur-sm">
+                  <Brain className="text-nomade-tan" size={24} />
                 </div>
-                <div className="absolute -top-1 -right-1 w-4 h-4 bg-emerald-400 rounded-full border-2 border-black animate-pulse"></div>
+                <div className="absolute -top-1 -right-1 w-4 h-4 bg-nomade-green rounded-full border-2 border-nomade-dark-brown animate-pulse"></div>
               </div>
               <div>
-                <h2 className="text-2xl font-bold bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">
+                <h2 className="text-2xl font-bold text-nomade-off-white">
                   FinGPT Assistant
                 </h2>
-                <p className="text-cyan-200/80 text-sm">Advanced Hospitality Intelligence • Neural Network v4.2</p>
+                <p className="text-nomade-tan/80 text-sm">Advanced Hospitality Intelligence • Neural Network v4.2</p>
               </div>
             </div>
             <div className="flex items-center space-x-3">
-              <div className="bg-emerald-400/20 text-emerald-400 px-3 py-1 rounded-full text-xs font-bold border border-emerald-400/30">
+              <div className="bg-nomade-green/20 text-nomade-green px-3 py-1 rounded-full text-xs font-bold border border-nomade-green/30">
                 ONLINE
               </div>
-              <div className="bg-cyan-400/20 text-cyan-400 px-3 py-1 rounded-full text-xs font-bold border border-cyan-400/30">
+              <div className="bg-nomade-tan/20 text-nomade-tan px-3 py-1 rounded-full text-xs font-bold border border-nomade-tan/30">
                 LEARNING
               </div>
             </div>
@@ -276,17 +276,17 @@ const AIBotPage: React.FC = () => {
                 {/* Premium Avatar */}
                 <div className={`w-12 h-12 rounded-2xl flex items-center justify-center shadow-xl border-2 ${
                   message.type === 'user' 
-                    ? 'bg-gradient-to-br from-emerald-400 via-cyan-400 to-blue-500 border-cyan-400/50' 
-                    : 'bg-gradient-to-br from-purple-600 via-blue-600 to-cyan-500 border-purple-400/50'
+                    ? 'bg-nomade-green/90 border-nomade-green/50' 
+                    : 'bg-nomade-tan/20 border-nomade-tan/30 backdrop-blur-sm'
                 }`}>
-                  {message.type === 'user' ? <User size={20} className="text-white" /> : <Brain size={20} className="text-white" />}
+                  {message.type === 'user' ? <User size={20} className="text-white" /> : <Brain size={20} className="text-nomade-tan" />}
                 </div>
                 
                 {/* Message Content */}
                 <div className={`rounded-3xl p-6 shadow-2xl border backdrop-blur-xl ${
                   message.type === 'user'
-                    ? 'bg-gradient-to-br from-emerald-400/90 via-cyan-400/90 to-blue-500/90 text-white border-cyan-400/30'
-                    : 'bg-gradient-to-br from-black/80 via-gray-900/90 to-black/80 text-cyan-100 border-cyan-400/20'
+                    ? 'bg-nomade-green/90 text-white border-nomade-green/30'
+                    : 'bg-nomade-dark-brown/80 text-nomade-off-white border-nomade-tan/20'
                 }`}>
                   <p className="leading-relaxed text-lg font-medium">{message.content}</p>
                   
@@ -294,18 +294,18 @@ const AIBotPage: React.FC = () => {
                   {message.charts && (
                     <div className="mt-6 space-y-6">
                       {message.charts.map((chart, index) => (
-                        <div key={index} className="bg-black/40 backdrop-blur-xl rounded-2xl p-6 border border-cyan-400/20 shadow-xl">
+                        <div key={index} className="bg-nomade-dark-brown/40 backdrop-blur-xl rounded-2xl p-6 border border-nomade-tan/20 shadow-xl">
                           <div className="flex items-center space-x-3 mb-4">
-                            <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-cyan-400 to-blue-500 flex items-center justify-center">
+                            <div className="w-8 h-8 rounded-xl bg-nomade-tan/20 border border-nomade-tan/30 flex items-center justify-center backdrop-blur-sm">
                               <BarChart3 size={16} className="text-white" />
                             </div>
-                            <h4 className="text-lg font-bold text-cyan-100">{chart.title}</h4>
+                            <h4 className="text-lg font-bold text-nomade-off-white">{chart.title}</h4>
                             <div className="flex-1"></div>
-                            <div className="bg-emerald-400/20 text-emerald-400 px-2 py-1 rounded-lg text-xs font-bold border border-emerald-400/30">
+                            <div className="bg-nomade-green/20 text-nomade-green px-2 py-1 rounded-lg text-xs font-bold border border-nomade-green/30">
                               LIVE DATA
                             </div>
                           </div>
-                          <div className="bg-black/20 rounded-xl p-4 border border-cyan-400/10">
+                          <div className="bg-nomade-dark-brown/20 rounded-xl p-4 border border-nomade-tan/10">
                             {renderChart(chart)}
                           </div>
                         </div>
@@ -315,19 +315,19 @@ const AIBotPage: React.FC = () => {
                   
                   {/* AI Insights */}
                   {message.insights && (
-                    <div className="mt-6 bg-gradient-to-br from-cyan-400/10 via-blue-500/10 to-purple-500/10 backdrop-blur-xl rounded-2xl p-6 border border-cyan-400/20">
+                    <div className="mt-6 bg-nomade-tan/10 backdrop-blur-xl rounded-2xl p-6 border border-nomade-tan/20">
                       <div className="flex items-center space-x-3 mb-4">
-                        <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center">
+                        <div className="w-8 h-8 rounded-xl bg-nomade-terracotta/20 border border-nomade-terracotta/30 flex items-center justify-center backdrop-blur-sm">
                           <Sparkles size={16} className="text-white" />
                         </div>
-                        <h4 className="text-lg font-bold text-cyan-100">Neural Intelligence Insights</h4>
+                        <h4 className="text-lg font-bold text-nomade-off-white">Neural Intelligence Insights</h4>
                       </div>
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         {message.insights.map((insight, index) => (
-                          <div key={index} className="bg-black/30 backdrop-blur-sm rounded-xl p-4 border border-cyan-400/20 hover:border-cyan-400/40 transition-all duration-300">
+                          <div key={index} className="bg-nomade-dark-brown/30 backdrop-blur-sm rounded-xl p-4 border border-nomade-tan/20 hover:border-nomade-tan/40 transition-all duration-300">
                             <div className="flex items-start space-x-3">
-                              <div className="w-2 h-2 bg-cyan-400 rounded-full mt-2 animate-pulse"></div>
-                              <span className="text-cyan-200 text-sm leading-relaxed">{insight}</span>
+                              <div className="w-2 h-2 bg-nomade-tan rounded-full mt-2 animate-pulse"></div>
+                              <span className="text-nomade-off-white text-sm leading-relaxed">{insight}</span>
                             </div>
                           </div>
                         ))}
@@ -339,18 +339,18 @@ const AIBotPage: React.FC = () => {
                   {message.suggestions && (
                     <div className="mt-6 space-y-3">
                       <div className="flex items-center space-x-3 mb-4">
-                        <Target size={16} className="text-cyan-400" />
-                        <span className="text-sm font-semibold text-cyan-200">AI-Recommended Actions:</span>
+                        <Target size={16} className="text-nomade-tan" />
+                        <span className="text-sm font-semibold text-nomade-off-white">AI-Recommended Actions:</span>
                       </div>
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                         {message.suggestions.map((suggestion, index) => (
                           <button
                             key={index}
                             onClick={() => setInputValue(suggestion)}
-                            className="text-left bg-gradient-to-r from-cyan-400/10 via-blue-500/10 to-purple-500/10 hover:from-cyan-400/20 hover:via-blue-500/20 hover:to-purple-500/20 border border-cyan-400/30 hover:border-cyan-400/50 rounded-xl p-4 text-sm transition-all duration-300 hover:transform hover:scale-105 text-cyan-200 backdrop-blur-sm shadow-lg hover:shadow-cyan-400/20"
+                            className="text-left bg-nomade-tan/10 hover:bg-nomade-tan/20 border border-nomade-tan/30 hover:border-nomade-tan/50 rounded-xl p-4 text-sm transition-all duration-300 hover:transform hover:scale-105 text-nomade-off-white backdrop-blur-sm shadow-lg hover:shadow-nomade-tan/20"
                           >
                             <div className="flex items-center space-x-2">
-                              <Zap size={14} className="text-cyan-400" />
+                              <Zap size={14} className="text-nomade-tan" />
                               <span>{suggestion}</span>
                             </div>
                           </button>
@@ -367,20 +367,20 @@ const AIBotPage: React.FC = () => {
           {isTyping && (
             <div className="flex justify-start">
               <div className="flex space-x-4 max-w-5xl">
-                <div className="w-12 h-12 rounded-2xl flex items-center justify-center shadow-xl border-2 bg-gradient-to-br from-purple-600 via-blue-600 to-cyan-500 border-purple-400/50">
-                  <Brain size={20} className="text-white" />
+                <div className="w-12 h-12 rounded-2xl flex items-center justify-center shadow-xl border-2 bg-nomade-tan/20 border-nomade-tan/30 backdrop-blur-sm">
+                  <Brain size={20} className="text-nomade-tan" />
                 </div>
-                <div className="bg-gradient-to-br from-black/80 via-gray-900/90 to-black/80 text-cyan-100 border border-cyan-400/20 rounded-3xl p-6 shadow-2xl backdrop-blur-xl">
+                <div className="bg-nomade-dark-brown/80 text-nomade-off-white border border-nomade-tan/20 rounded-3xl p-6 shadow-2xl backdrop-blur-xl">
                   <div className="flex items-center space-x-4">
                     <div className="flex space-x-2">
-                      <div className="w-3 h-3 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full animate-bounce"></div>
-                      <div className="w-3 h-3 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
-                      <div className="w-3 h-3 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
+                      <div className="w-3 h-3 bg-nomade-tan rounded-full animate-bounce"></div>
+                      <div className="w-3 h-3 bg-nomade-green rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
+                      <div className="w-3 h-3 bg-nomade-terracotta rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
                     </div>
-                    <span className="text-cyan-200 font-medium">FinGPT neural networks processing...</span>
+                    <span className="text-nomade-off-white font-medium">FinGPT neural networks processing...</span>
                     <div className="flex items-center space-x-2">
-                      <Layers size={16} className="text-cyan-400 animate-spin" />
-                      <span className="text-cyan-400 text-sm font-bold">DEEP ANALYSIS</span>
+                      <Layers size={16} className="text-nomade-tan animate-spin" />
+                      <span className="text-nomade-tan text-sm font-bold">DEEP ANALYSIS</span>
                     </div>
                   </div>
                 </div>
@@ -391,7 +391,7 @@ const AIBotPage: React.FC = () => {
         </div>
 
         {/* Premium Input Area */}
-        <div className="border-t border-cyan-400/20 p-6 bg-gradient-to-r from-black/60 via-gray-900/80 to-black/60 backdrop-blur-xl">
+        <div className="border-t border-nomade-tan/20 p-6 bg-nomade-dark-brown/60 backdrop-blur-xl">
           <div className="flex space-x-4">
             <div className="flex-1 relative">
               <input
@@ -400,12 +400,12 @@ const AIBotPage: React.FC = () => {
                 onChange={(e) => setInputValue(e.target.value)}
                 onKeyPress={(e) => e.key === 'Enter' && handleSendMessage()}
                 placeholder="Ask FinGPT about performance, generate insights, analyze trends..."
-                className="w-full py-4 px-6 pr-16 bg-black/40 backdrop-blur-xl border border-cyan-400/30 rounded-2xl focus:ring-2 focus:ring-cyan-400/50 focus:border-cyan-400/50 transition-all duration-300 text-cyan-100 placeholder:text-cyan-400/60 shadow-xl text-lg"
+                className="w-full py-4 px-6 pr-16 bg-nomade-dark-brown/40 backdrop-blur-xl border border-nomade-tan/30 rounded-2xl focus:ring-2 focus:ring-nomade-tan/50 focus:border-nomade-tan/50 transition-all duration-300 text-nomade-off-white placeholder:text-nomade-tan/60 shadow-xl text-lg"
               />
               <button
                 onClick={handleSendMessage}
                 disabled={!inputValue.trim()}
-                className="absolute right-3 top-1/2 -translate-y-1/2 bg-gradient-to-br from-cyan-400 via-blue-500 to-purple-600 text-white p-3 rounded-xl hover:from-cyan-300 hover:via-blue-400 hover:to-purple-500 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed shadow-xl hover:shadow-cyan-400/30 hover:scale-110"
+                className="absolute right-3 top-1/2 -translate-y-1/2 bg-nomade-green text-white p-3 rounded-xl hover:bg-nomade-light-green transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed shadow-xl hover:shadow-nomade-green/30 hover:scale-110"
               >
                 <Send size={18} />
               </button>
@@ -427,9 +427,9 @@ const AIBotPage: React.FC = () => {
                 <button
                   key={index}
                   onClick={() => setInputValue(action.text)}
-                  className="bg-gradient-to-r from-cyan-400/10 via-blue-500/10 to-purple-500/10 hover:from-cyan-400/20 hover:via-blue-500/20 hover:to-purple-500/20 text-cyan-200 text-sm px-4 py-2 rounded-xl transition-all duration-300 border border-cyan-400/20 hover:border-cyan-400/40 backdrop-blur-sm shadow-lg hover:shadow-cyan-400/20 hover:scale-105 flex items-center space-x-2"
+                  className="bg-nomade-tan/10 hover:bg-nomade-tan/20 text-nomade-off-white text-sm px-4 py-2 rounded-xl transition-all duration-300 border border-nomade-tan/20 hover:border-nomade-tan/40 backdrop-blur-sm shadow-lg hover:shadow-nomade-tan/20 hover:scale-105 flex items-center space-x-2"
                 >
-                  <Icon size={14} className="text-cyan-400" />
+                  <Icon size={14} className="text-nomade-tan" />
                   <span>{action.text}</span>
                 </button>
               );
@@ -443,15 +443,15 @@ const AIBotPage: React.FC = () => {
           width: 8px;
         }
         .custom-scrollbar::-webkit-scrollbar-track {
-          background: rgba(0, 255, 136, 0.1);
+          background: rgba(179, 157, 140, 0.1);
           border-radius: 4px;
         }
         .custom-scrollbar::-webkit-scrollbar-thumb {
-          background: linear-gradient(to bottom, #00ff88, #0099ff);
+          background: linear-gradient(to bottom, #b39d8c, #5d681d);
           border-radius: 4px;
         }
         .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-          background: linear-gradient(to bottom, #00ff88, #0099ff);
+          background: linear-gradient(to bottom, #b39d8c, #5d681d);
         }
       `}</style>
     </div>
