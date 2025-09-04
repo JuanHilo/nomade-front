@@ -1,178 +1,138 @@
 import React from 'react';
-import { PieChart as PieChartIcon, Calendar, TrendingUp } from 'lucide-react';
-import { 
-  ResponsiveContainer,
-  BarChart,
-  Bar,
-  PieChart,
-  Pie,
-  Cell,
-  LineChart,
-  Line,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip
-} from 'recharts';
+import { Building2 } from 'lucide-react';
 
-const AnalyticsCharts: React.FC = () => {
-  const bookingSourceData = [
-    { name: 'Online', value: 62, color: '#2F3B2D' },
-    { name: 'Guest Communications', value: 28, color: '#C7A34A' },
-    { name: 'Repeat', value: 6, color: '#6D675E' },
-    { name: 'Referral', value: 3, color: '#1B1B1A' },
-    { name: 'Other', value: 1, color: '#E8E2D5' }
-  ];
-
-  const weeklyOccupancy = [
-    { day: 'Mon', rate: 42.35, adr: 165 },
-    { day: 'Tue', rate: 42.95, adr: 158 },
-    { day: 'Wed', rate: 45.91, adr: 172 },
-    { day: 'Thu', rate: 42.68, adr: 168 },
-    { day: 'Fri', rate: 43.89, adr: 175 },
-    { day: 'Sat', rate: 70.89, adr: 180 },
-    { day: 'Sun', rate: 80.18, adr: 185 }
-  ];
-
-  const monthlyTrends = [
-    { month: 'Oct', revenue: 380000, occupancy: 72, adr: 168 },
-    { month: 'Nov', revenue: 420000, occupancy: 68, adr: 172 },
-    { month: 'Dec', revenue: 510000, occupancy: 85, adr: 185 },
-    { month: 'Jan', revenue: 434000, occupancy: 54, adr: 170 },
-    { month: 'Feb', revenue: 465000, occupancy: 61, adr: 175 },
-    { month: 'Mar', revenue: 520000, occupancy: 78, adr: 182 }
-  ];
-
-  const CustomTooltip = ({ active, payload, label }: any) => {
-    if (active && payload && payload.length) {
-      return (
-        <div className="bg-obsidian/95 backdrop-blur-sm border border-muted-gold/20 rounded-lg p-3 shadow-xl">
-          <p className="text-ivory font-medium mb-2 text-sm">{label}</p>
-          {payload.map((entry: any, index: number) => (
-            <p key={index} className="text-ivory/80 text-xs">
-              <span className="inline-block w-2 h-2 rounded-full mr-2" style={{ backgroundColor: entry.color }}></span>
-              <span className="font-medium">{entry.name}:</span> {entry.name.includes('€') ? `€${entry.value?.toLocaleString()}` : entry.value}
-            </p>
-          ))}
-        </div>
-      );
+const PortfolioTable: React.FC = () => {
+  const hotels = [
+    {
+      name: "NOMADE",
+      location: "Tulum",
+      city: "Tulum, Mexico",
+      image: "https://images.pexels.com/photos/2290753/pexels-photo-2290753.jpeg?auto=compress&cs=tinysrgb&w=80",
+      rooms: 180,
+      occupancy: "87.2%",
+      revpar: "€423",
+      adr: "€485", 
+      nights: "47,124",
+      value: "€35.2M"
+    },
+    {
+      name: "NOMADE",
+      location: "Madrid", 
+      city: "Madrid, Spain",
+      image: "https://images.pexels.com/photos/2029667/pexels-photo-2029667.jpeg?auto=compress&cs=tinysrgb&w=80",
+      rooms: 120,
+      occupancy: "92.1%",
+      revpar: "€479",
+      adr: "€520",
+      nights: "40,512", 
+      value: "€42.8M"
+    },
+    {
+      name: "NOMADE",
+      location: "Holbox",
+      city: "Holbox, Mexico", 
+      image: "https://images.pexels.com/photos/1134176/pexels-photo-1134176.jpeg?auto=compress&cs=tinysrgb&w=80",
+      rooms: 65,
+      occupancy: "89.5%",
+      revpar: "€395",
+      adr: "€441",
+      nights: "21,243",
+      value: "€20.7M"
     }
-    return null;
-  };
+  ];
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
-      {/* Booking Source */}
-      <div className="rounded-2xl p-5 border shadow-2xl bg-nomade-dark-brown/95 border-nomade-tan/20 backdrop-blur-sm relative overflow-hidden hover:transform hover:scale-[1.02] transition-all duration-500">
-        {/* Subtle gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-br from-nomade-tan/5 via-transparent to-nomade-green/5 pointer-events-none"></div>
-        
-        <div className="relative z-10">
-        <div className="flex items-center space-x-2 mb-3">
-          <div className="rounded-xl p-2 border bg-nomade-tan/20 border-nomade-tan/30 backdrop-blur-sm">
-            <PieChartIcon className="text-nomade-tan" size={14} />
+    <div className="rounded-2xl p-8 border shadow-2xl border-white/20 backdrop-blur-sm relative overflow-hidden" style={{ backgroundColor: '#5D681D' }}>
+      {/* Subtle gradient overlay */}
+      
+      <div className="relative z-10">
+      <div className="flex items-center justify-between mb-6">
+        <div className="flex items-center space-x-3">
+          <div className="rounded-xl p-3 border shadow-lg bg-white/10 border-white/20 backdrop-blur-sm">
+            <Building2 className="text-white" size={20} />
           </div>
           <div>
-            <h3 className="text-base font-serif text-nomade-off-white">Guest Channels</h3>
-            <p className="text-sm text-nomade-tan/80">Distribution by access</p>
+            <h3 className="text-xl font-serif tracking-wide text-white">Hotel Portfolio</h3>
+            <p className="text-base mt-1 text-white/70">Performance across distinguished destinations</p>
           </div>
         </div>
-        <div className="flex flex-col">
-          <div className="mb-3">
-            <ResponsiveContainer width="100%" height={100}>
-              <PieChart>
-                <Pie
-                  data={bookingSourceData}
-                  cx="50%"
-                  cy="50%"
-                  innerRadius={20}
-                  outerRadius={45}
-                  paddingAngle={2}
-                  dataKey="value"
-                >
-                  {bookingSourceData.map((entry, index) => (
-                    <Cell key={`cell-${index}`} fill={entry.color} />
-                  ))}
-                </Pie>
-                <Tooltip content={<CustomTooltip />} />
-              </PieChart>
-            </ResponsiveContainer>
-          </div>
-          <div className="grid grid-cols-2 gap-1 text-xs">
-            {bookingSourceData.map((item, index) => (
-              <div key={index} className="flex items-center space-x-1">
-                <div className="w-2 h-2 rounded-full flex-shrink-0 border" style={{ backgroundColor: item.color, borderColor: 'rgba(179, 157, 140, 0.3)' }}></div>
-                <span className="font-medium truncate text-nomade-off-white">{item.name}</span>
-                <span className="font-semibold text-nomade-tan/80">{item.value}%</span>
-              </div>
+        <button className="backdrop-blur-sm px-6 py-3 rounded-xl border hover:bg-white/15 hover:text-yellow-300 transition-all duration-300 text-sm font-medium shadow-lg bg-white/10 text-white border-white/20 hover:transform hover:scale-105">
+          Export Portfolio
+        </button>
+      </div>
+
+      <div className="overflow-x-auto">
+        <table className="w-full">
+          <thead>
+            <tr className="border-b border-nomade-tan/30">
+              <th className="text-left py-3 px-4 text-xs font-serif tracking-widest uppercase text-white/70">HOTEL</th>
+              <th className="text-center py-3 px-3 text-xs font-serif tracking-widest uppercase text-white/70">ROOMS</th>
+              <th className="text-center py-3 px-3 text-xs font-serif tracking-widest uppercase text-white/70">OCCUPANCY</th>
+              <th className="text-center py-3 px-3 text-xs font-serif tracking-widest uppercase text-white/70">REVPAR</th>
+              <th className="text-center py-3 px-3 text-xs font-serif tracking-widest uppercase text-white/70">AVG. DAILY RATE</th>
+              <th className="text-center py-3 px-3 text-xs font-serif tracking-widest uppercase text-white/70">NIGHTS BOOKED</th>
+              <th className="text-right py-3 px-4 text-xs font-serif tracking-widest uppercase text-white/70">VALUE</th>
+            </tr>
+          </thead>
+          <tbody>
+            {hotels.map((hotel, index) => (
+              <tr key={index} className="border-b hover:bg-white/5 transition-colors duration-200 border-white/20">
+                <td className="py-4 px-4">
+                  <div className="flex items-center space-x-3">
+                    <img
+                      src={hotel.image}
+                      alt={`${hotel.name} ${hotel.location}`}
+                      className="w-8 h-8 rounded-lg object-cover border border-white/30"
+                    />
+                    <div>
+                      <div className="font-bold text-white">{hotel.name}</div>
+                      <div className="font-bold text-white">{hotel.location}</div>
+                      <div className="text-xs text-white/60">{hotel.city}</div>
+                    </div>
+                  </div>
+                </td>
+                <td className="py-4 px-3 text-center font-bold text-white">{hotel.rooms}</td>
+                <td className="py-4 px-3 text-center">
+                  <span className="px-2 py-1 rounded-full text-xs font-bold border bg-emerald-400/20 text-emerald-300 border-emerald-400/30">
+                    {hotel.occupancy}
+                  </span>
+                </td>
+                <td className="py-4 px-3 text-center font-bold text-white">{hotel.revpar}</td>
+                <td className="py-4 px-3 text-center font-bold text-white">{hotel.adr}</td>
+                <td className="py-4 px-3 text-center font-bold text-white">{hotel.nights}</td>
+                <td className="py-4 px-4 text-right font-bold text-lg text-emerald-300">{hotel.value}</td>
+              </tr>
             ))}
-          </div>
-        </div>
-        </div>
+            
+            <tr className="border-b bg-emerald-400/10 border-emerald-400/30">
+              <td className="py-4 px-4">
+                <div className="flex items-center space-x-3">
+                  <div className="w-8 h-8 rounded-lg border flex items-center justify-center bg-emerald-400/20 border-emerald-400/30">
+                    <Building2 className="text-emerald-300" size={14} />
+                  </div>
+                  <div>
+                    <div className="font-bold text-white">PORTFOLIO</div>
+                    <div className="font-bold text-white">TOTAL</div>
+                  </div>
+                </div>
+              </td>
+              <td className="py-4 px-3 text-center font-bold text-white">365</td>
+              <td className="py-4 px-3 text-center">
+                <span className="px-2 py-1 rounded-full text-xs font-bold border bg-emerald-400/20 text-emerald-300 border-emerald-400/30">
+                  89.6%
+                </span>
+              </td>
+              <td className="py-4 px-3 text-center font-bold text-white">€432</td>
+              <td className="py-4 px-3 text-center font-bold text-white">€482</td>
+              <td className="py-4 px-3 text-center font-bold text-white">108,879</td>
+              <td className="py-4 px-4 text-right font-bold text-lg text-emerald-300">€98.7M</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
-
-      {/* Weekly Occupancy */}
-      <div className="rounded-2xl p-5 border shadow-2xl bg-nomade-dark-brown/95 border-nomade-tan/20 backdrop-blur-sm relative overflow-hidden hover:transform hover:scale-[1.02] transition-all duration-500">
-        {/* Subtle gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-br from-nomade-tan/5 via-transparent to-nomade-green/5 pointer-events-none"></div>
-        
-        <div className="relative z-10">
-        <div className="flex items-center space-x-2 mb-3">
-          <div className="rounded-xl p-2 border bg-nomade-tan/20 border-nomade-tan/30 backdrop-blur-sm">
-            <Calendar className="text-nomade-tan" size={14} />
-          </div>
-          <div>
-            <h3 className="text-base font-serif text-nomade-off-white">Weekly Presence</h3>
-            <p className="text-sm text-nomade-tan/80">Daily performance</p>
-          </div>
-        </div>
-        <ResponsiveContainer width="100%" height={120}>
-          <BarChart data={weeklyOccupancy}>
-            <CartesianGrid strokeDasharray="3 3" stroke="#b39d8c" strokeOpacity={0.2} />
-            <XAxis dataKey="day" stroke="#b39d8c" fontSize={10} />
-            <YAxis stroke="#b39d8c" fontSize={10} />
-            <Tooltip content={<CustomTooltip />} />
-            <Bar dataKey="rate" fill="#5d681d" radius={[2, 2, 0, 0]} />
-          </BarChart>
-        </ResponsiveContainer>
-        </div>
-      </div>
-
-      {/* Monthly Trends */}
-      <div className="rounded-2xl p-5 border shadow-2xl bg-nomade-dark-brown/95 border-nomade-tan/20 backdrop-blur-sm relative overflow-hidden hover:transform hover:scale-[1.02] transition-all duration-500">
-        {/* Subtle gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-br from-nomade-tan/5 via-transparent to-nomade-green/5 pointer-events-none"></div>
-        
-        <div className="relative z-10">
-        <div className="flex items-center space-x-2 mb-3">
-          <div className="rounded-xl p-2 border bg-nomade-tan/20 border-nomade-tan/30 backdrop-blur-sm">
-            <TrendingUp className="text-nomade-tan" size={14} />
-          </div>
-          <div>
-            <h3 className="text-base font-serif text-nomade-off-white">Monthly Excellence</h3>
-            <p className="text-sm text-nomade-tan/80">Revenue progression</p>
-          </div>
-        </div>
-        <ResponsiveContainer width="100%" height={120}>
-          <LineChart data={monthlyTrends}>
-            <CartesianGrid strokeDasharray="3 3" stroke="#b39d8c" strokeOpacity={0.2} />
-            <XAxis dataKey="month" stroke="#b39d8c" fontSize={10} />
-            <YAxis stroke="#b39d8c" fontSize={10} />
-            <Tooltip content={<CustomTooltip />} />
-            <Line 
-              type="monotone" 
-              dataKey="revenue" 
-              stroke="#5d681d"
-              strokeWidth={2} 
-              dot={{ r: 3, fill: "#5d681d" }}
-              activeDot={{ r: 4, fill: "#5d681d" }}
-            />
-          </LineChart>
-        </ResponsiveContainer>
-        </div>
       </div>
     </div>
   );
 };
 
-export default AnalyticsCharts;
+export default PortfolioTable;
