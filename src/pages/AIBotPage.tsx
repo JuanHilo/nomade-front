@@ -215,11 +215,6 @@ const AIBotPage: React.FC = () => {
               <div className="w-3 h-3 bg-nomade-tan rounded-full animate-pulse"></div>
               <div className="absolute inset-0 w-3 h-3 bg-nomade-tan rounded-full animate-ping opacity-30"></div>
             </div>
-            <div className="flex items-center space-x-3">
-              <Brain className="text-nomade-tan" size={20} />
-              <span className="text-nomade-off-white font-semibold">FinGPT Neural Network</span>
-              <span className="text-nomade-tan/80 text-sm">• Active • Processing 847 data points/sec</span>
-            </div>
           </div>
           <div className="flex items-center space-x-6 text-xs">
             <div className="flex items-center space-x-2">
