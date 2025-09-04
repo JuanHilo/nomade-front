@@ -136,4 +136,4 @@ const RevenueMetrics: React.FC = () => {
   );
 };
 
-export default PerformanceCharts;
+export default RevenueMetrics;
