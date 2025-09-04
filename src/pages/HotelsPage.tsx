@@ -112,7 +112,7 @@ const HotelsPage: React.FC = () => {
             <Search className="absolute left-6 top-1/2 -translate-y-1/2 text-stone-400" size={20} />
             <input
               type="text"
-              placeholder="Discover sanctuaries..."
+              placeholder="Search hotels..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               className="w-full pl-16 pr-6 py-5 bg-white/60 backdrop-blur-sm border border-stone-200 rounded-2xl focus:ring-2 focus:ring-yellow-600/30 focus:border-yellow-600/50 transition-all duration-500 text-stone-800 text-lg placeholder:text-stone-400 shadow-inner"
