@@ -1,6 +1,7 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { ArrowLeft, Download, FileText, Plus, Calendar, Filter } from 'lucide-react';
+import HotelReportTemplate from '../components/reports/HotelReportTemplate';
 
 const ReportViewerPage: React.FC = () => {
   const { id } = useParams();
@@ -69,6 +70,20 @@ const ReportViewerPage: React.FC = () => {
   ];
 
   const selectedReport = reports.find(report => report.id === parseInt(id || '1')) || reports[0];
+  
+  // Mock hotel data for the report
+  const hotelData = {
+    id: 1,
+    name: 'Tulum',
+    location: 'Carretera Tulum-Boca Paila Km 10, 77780 Tulum, Mexico',
+    rating: 5,
+    keys: 48,
+    brand: 'NOMADE Hotels',
+    contract: 'Management Agreement',
+    openingDate: 'December 1, 2017',
+    constructionArea: '12,000 m²',
+    floors: 2
+  };
 
   const handleDownloadReport = (report: any) => {
     if (report.pdfUrl) {
@@ -244,11 +259,12 @@ const ReportViewerPage: React.FC = () => {
                   
                   <div className="h-[700px] bg-white/5">
                     {selectedReport.status === 'Published' ? (
-                      <iframe
-                        src={selectedReport.pdfUrl}
-                        className="w-full h-full border-0"
-                        title={selectedReport.title}
-                      />
+                      <div className="w-full h-full overflow-auto">
+                        <HotelReportTemplate 
+                          hotel={hotelData}
+                          reportData={selectedReport}
+                        />
+                      </div>
                     ) : (
                       <div className="flex items-center justify-center h-full">
                         <div className="text-center space-y-4">
