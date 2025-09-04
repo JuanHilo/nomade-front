@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 
 const ReportsPage: React.FC = () => {
   const navigate = useNavigate();
+  const [selectedReport, setSelectedReport] = useState<any>(null);
 
   const reports = [
     {
