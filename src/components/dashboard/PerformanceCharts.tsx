@@ -42,7 +42,7 @@ const PerformanceCharts: React.FC = () => {
   ];
 
   return (
-    <div className="rounded-2xl p-8 border shadow-2xl bg-nomade-dark-brown/90 border-white/10 backdrop-blur-xl relative overflow-hidden hover:transform hover:scale-[1.02] transition-all duration-500">
+    <div className="rounded-2xl p-8 border shadow-2xl bg-nomade-dark-brown/90 border-white/10 backdrop-blur-xl relative overflow-hidden hover:transform hover:scale-[1.02] transition-all duration-500 group">
       {/* Glass morphism inner glow */}
       <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-white/5 via-transparent to-white/5 pointer-events-none"></div>
       
