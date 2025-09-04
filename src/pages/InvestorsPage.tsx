@@ -9,7 +9,7 @@ const InvestorsPage: React.FC = () => {
     {
       id: 1,
       name: 'Real Estate Bullish Fund',
-      type: 'Institutional',|
+      type: 'Institutional',
       avatar: 'https://images.pexels.com/photos/5668882/pexels-photo-5668882.jpeg?auto=compress&cs=tinysrgb&w=300',
       email: 'bullishfund@realestate.com',
       phone: '593040331',
