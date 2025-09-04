@@ -1,7 +1,7 @@
 import React from 'react';
 import { Building2 } from 'lucide-react';
 
-const RevenueMetrics: React.FC = () => {
+const PortfolioTable: React.FC = () => {
   const hotels = [
     {
       name: "NOMADE",
@@ -136,4 +136,4 @@ const RevenueMetrics: React.FC = () => {
   );
 };
 
-export default RevenueMetrics;
+export default PortfolioTable;
