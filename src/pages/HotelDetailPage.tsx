@@ -17,7 +17,7 @@ const HotelDetailPage: React.FC = () => {
     id: 1,
     name: 'NOMADE Tulum',
     location: 'Carretera Tulum-Boca Paila Km 10, 77780 Tulum, Mexico',
-    image: 'https://images.pexels.com/photos/2290753/pexels-photo-2290753.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    image: '/nomadetulum.jpeg',
     rating: 5,
     keys: 48,
     brand: 'NOMADE Hotels',
@@ -56,10 +56,10 @@ const HotelDetailPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-nomade-off-white">
+    <div className="min-h-screen" style={{ backgroundColor: '#F7F5F0' }}>
       {/* Header */}
-      <div className="relative overflow-hidden" style={{ backgroundImage: 'url(/bg_pattern1.png)', backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}>
-        <div className="relative z-10 max-w-7xl mx-auto px-8 py-16">
+      <div className="bg-nomade-dark-brown/95 backdrop-blur-sm border-b border-nomade-tan/20">
+        <div className="max-w-7xl mx-auto px-8 py-16">
           <div className="flex items-center justify-between">
             <div className="space-y-4">
               <Link 
@@ -69,52 +69,49 @@ const HotelDetailPage: React.FC = () => {
                 <ArrowLeft size={20} />
                 <span>Back to Hotels</span>
               </Link>
-              <h1 className="text-display-lg text-nomade-off-white">
+              <h1 className="text-4xl font-bold text-nomade-off-white">
                 {hotel.name}
               </h1>
-              <p className="text-body-xl text-nomade-off-white/90">
+              <p className="text-lg text-nomade-off-white/90">
                 {hotel.location}
               </p>
             </div>
             
             <div className="flex items-center space-x-8">
               <div className="text-right">
-                <div className="text-metric-lg text-nomade-green">{hotel.keys}</div>
-                <div className="text-label-sm text-nomade-off-white/80">Keys</div>
+                <div className="text-3xl font-bold text-nomade-tan">{hotel.keys}</div>
+                <div className="text-sm text-nomade-off-white/80">Keys</div>
               </div>
               
               <div className="w-px h-16 bg-nomade-off-white/30"></div>
               
               <div className="text-right">
-                <div className="text-metric-lg text-nomade-terracotta">87%</div>
-                <div className="text-label-sm text-nomade-off-white/80">Occupancy</div>
+                <div className="text-3xl font-bold text-nomade-tan">87%</div>
+                <div className="text-sm text-nomade-off-white/80">Occupancy</div>
               </div>
               
-              <button className="bg-nomade-green text-nomade-off-white px-8 py-4 rounded-xl hover:bg-nomade-light-green transition-all duration-300 text-button shadow-xl flex items-center space-x-2">
+              <button className="bg-nomade-tan/20 text-nomade-off-white px-8 py-4 rounded-xl hover:bg-nomade-tan/30 transition-all duration-300 font-semibold flex items-center space-x-2 border border-nomade-tan/30">
                 <Download size={20} />
                 <span>Export Report</span>
               </button>
             </div>
           </div>
         </div>
-        
-        {/* Background overlay */}
-        <div className="absolute inset-0 bg-nomade-dark-brown/60"></div>
       </div>
 
-      <div className="px-8 py-8 max-w-7xl mx-auto bg-nomade-off-white">
+      <div className="px-8 py-8 max-w-7xl mx-auto" style={{ backgroundColor: '#F7F5F0' }}>
         {/* Tab Navigation */}
-        <div className="flex space-x-2 mb-8 bg-white rounded-2xl p-2 shadow-lg">
+        <div className="flex space-x-2 mb-8 bg-white/90 backdrop-blur-sm rounded-2xl p-2 shadow-lg border border-stone-200">
           {tabs.map((tab) => {
             const Icon = tab.icon;
             return (
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`flex-1 py-4 px-6 rounded-xl text-button transition-all duration-200 flex items-center justify-center space-x-2 ${
+                className={`flex-1 py-4 px-6 rounded-xl font-semibold transition-all duration-200 flex items-center justify-center space-x-2 ${
                   activeTab === tab.id
-                    ? 'bg-nomade-green text-white shadow-lg'
-                    : 'text-nomade-gray hover:bg-nomade-gray/5'
+                    ? 'bg-nomade-dark-brown text-nomade-off-white shadow-lg'
+                    : 'text-stone-600 hover:bg-stone-100'
                 }`}
               >
                 <Icon size={20} />
