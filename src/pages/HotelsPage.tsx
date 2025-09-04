@@ -23,8 +23,8 @@ const HotelsPage: React.FC = () => {
     },
     {
       id: 2,
-      name: 'NOMADE Punta Mita',
-      location: 'Punta de Mita, Mexico',
+      name: 'NOMADE Holbox',
+      location: 'Holbox, Mexico',
       image: 'https://images.pexels.com/photos/2290753/pexels-photo-2290753.jpeg?auto=compress&cs=tinysrgb&w=1200',
       keys: 180,
       status: 'Operational',
@@ -33,13 +33,13 @@ const HotelsPage: React.FC = () => {
       occupancyDelta: '+1.4',
       adr: '485',
       revpar: '423',
-      narrative: 'A sanctuary of reconnection, rooted in Punta Mita\'s coastal spirit.',
+      narrative: 'A sanctuary of reconnection, rooted in Holbox\'s coastal spirit.',
       phase: 'Operational Excellence'
     },
     {
       id: 3,
-      name: 'NOMADE Todos Santos',
-      location: 'Todos Santos, Mexico',
+      name: 'NOMADE Marrakech',
+      location: 'Marrakech, Morocco',
       image: 'https://images.pexels.com/photos/2029667/pexels-photo-2029667.jpeg?auto=compress&cs=tinysrgb&w=1200',
       keys: 85,
       status: 'Operational',
@@ -48,13 +48,13 @@ const HotelsPage: React.FC = () => {
       occupancyDelta: '+2.8',
       adr: '520',
       revpar: '479',
-      narrative: 'Crafted retreat in Todos Santos — where desert meets sea.',
+      narrative: 'Crafted retreat in Marrakech — where desert meets tradition.',
       phase: 'Operational Excellence'
     },
     {
       id: 4,
-      name: 'NOMADE New York',
-      location: 'Manhattan, New York',
+      name: 'NOMADE Lisboa',
+      location: 'Lisboa, Portugal',
       image: 'https://images.pexels.com/photos/1134176/pexels-photo-1134176.jpeg?auto=compress&cs=tinysrgb&w=1200',
       keys: 120,
       status: 'Construction',
@@ -63,7 +63,7 @@ const HotelsPage: React.FC = () => {
       occupancyDelta: '',
       adr: '—',
       revpar: '—',
-      narrative: 'Under creation, redefining urban sanctuaries in Manhattan\'s heart.',
+      narrative: 'Under creation, redefining urban sanctuaries in Lisboa\'s heart.',
       phase: 'In Crafting Stage — 2026 Opening'
     },
     {
