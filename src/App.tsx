@@ -103,12 +103,13 @@ function App() {
           } />
         </Routes>
       </Router>
-  );
-}
 
       <GenerateReportModal 
         isOpen={showReportModal} 
         onClose={() => setShowReportModal(false)} 
       />
     </>
+  );
+}
+
 export default App;
