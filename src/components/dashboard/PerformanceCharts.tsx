@@ -119,9 +119,9 @@ const PerformanceCharts: React.FC = () => {
                 <stop offset="95%" stopColor="#b39d8c" stopOpacity={0.05}/>
               </linearGradient>
             </defs>
-            <CartesianGrid strokeDasharray="3 3" stroke="#b39d8c" strokeOpacity={0.2} />
-            <XAxis dataKey="date" stroke="#b39d8c" fontSize={10} />
-            <YAxis stroke="#b39d8c" fontSize={10} />
+            <CartesianGrid strokeDasharray="3 3" stroke="#ebe9d8" strokeOpacity={0.2} />
+            <XAxis dataKey="date" stroke="#ebe9d8" fontSize={10} />
+            <YAxis stroke="#ebe9d8" fontSize={10} />
             <Tooltip content={<CustomTooltip />} />
             <Area type="monotone" dataKey="rooms" stackId="1" stroke="#5d681d" strokeWidth={2} fill="url(#roomsGradient)" />
             <Area type="monotone" dataKey="fb" stackId="1" stroke="#b39d8c" strokeWidth={2} fill="url(#fbGradient)" />
@@ -144,10 +144,10 @@ const PerformanceCharts: React.FC = () => {
         </div>
         <ResponsiveContainer width="100%" height={180}>
           <ComposedChart data={performanceData}>
-            <CartesianGrid strokeDasharray="3 3" stroke="#b39d8c" strokeOpacity={0.2} />
-            <XAxis dataKey="date" stroke="#b39d8c" fontSize={10} />
-            <YAxis yAxisId="left" stroke="#b39d8c" fontSize={10} />
-            <YAxis yAxisId="right" orientation="right" stroke="#b39d8c" fontSize={10} />
+            <CartesianGrid strokeDasharray="3 3" stroke="#ebe9d8" strokeOpacity={0.2} />
+            <XAxis dataKey="date" stroke="#ebe9d8" fontSize={10} />
+            <YAxis yAxisId="left" stroke="#ebe9d8" fontSize={10} />
+            <YAxis yAxisId="right" orientation="right" stroke="#ebe9d8" fontSize={10} />
             <Tooltip content={<CustomTooltip />} />
             <Bar yAxisId="left" dataKey="occupancy" fill="#5d681d" radius={[2, 2, 0, 0]} />
             <Line yAxisId="right" type="monotone" dataKey="adr" stroke="#b39d8c" strokeWidth={2} dot={{ r: 3, fill: "#b39d8c" }} />
