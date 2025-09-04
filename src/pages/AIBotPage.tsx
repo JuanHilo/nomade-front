@@ -207,31 +207,7 @@ const AIBotPage: React.FC = () => {
 
   return (
     <div className="flex-1 px-8 py-6 flex flex-col min-h-screen">
-      {/* AI Status Bar */}
-      <div className="mb-6 bg-nomade-dark-brown/95 backdrop-blur-xl rounded-2xl p-4 border border-nomade-tan/20 shadow-2xl">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center space-x-4">
-            <div className="relative">
-              <div className="w-3 h-3 bg-nomade-tan rounded-full animate-pulse"></div>
-              <div className="absolute inset-0 w-3 h-3 bg-nomade-tan rounded-full animate-ping opacity-30"></div>
-            </div>
-          </div>
-          <div className="flex items-center space-x-6 text-xs">
-            <div className="flex items-center space-x-2">
-              <Cpu className="text-nomade-green" size={16} />
-              <span className="text-nomade-green">GPU: 98.7%</span>
-            </div>
-            <div className="flex items-center space-x-2">
-              <Database className="text-nomade-terracotta" size={16} />
-              <span className="text-nomade-terracotta">Memory: 2.4TB</span>
-            </div>
-            <div className="flex items-center space-x-2">
-              <Globe className="text-nomade-sage-green" size={16} />
-              <span className="text-nomade-sage-green">Latency: 12ms</span>
-            </div>
-          </div>
-        </div>
-      </div>
+
 
       {/* Main Chat Interface */}
       <div className="flex-1 bg-nomade-dark-brown/95 backdrop-blur-2xl rounded-3xl shadow-2xl overflow-hidden flex flex-col border border-nomade-tan/20">
