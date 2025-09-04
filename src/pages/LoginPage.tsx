@@ -132,10 +132,6 @@ const LoginPage: React.FC = () => {
           </div>
 
           {/* Brand Message */}
-          <div className="text-center mt-8 space-y-2">
-            <h2 className="text-2xl font-serif text-nomade-off-white">NOMADE</h2>
-            <p className="text-nomade-tan/80">Where luxury meets intelligence</p>
-          </div>
         </div>
       </div>
     </div>
