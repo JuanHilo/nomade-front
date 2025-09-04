@@ -210,6 +210,7 @@ const AIBotPage: React.FC = () => {
 
 
       {/* Main Chat Interface */}
+      <div className="flex-1 bg-nomade-dark-brown/95 backdrop-blur-2xl rounded-3xl shadow-2xl overflow-hidden flex flex-col border border-nomade-tan/20">
 
         {/* Chat Messages */}
         <div className="flex-1 p-6 overflow-y-auto space-y-8 custom-scrollbar">
