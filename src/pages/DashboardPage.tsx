@@ -8,11 +8,12 @@ import AnalyticsCharts from '../components/dashboard/AnalyticsCharts';
 const DashboardPage: React.FC = () => {
   return (
     <div className="px-8 py-8 max-w-7xl mx-auto space-y-8">
+            <PerformanceMetrics />
       {/* Revenue Metrics - Translucent Cards Like Hotel Portfolio */}
       <RevenueMetrics />
 
       {/* Performance Excellence */}
-      <PerformanceMetrics />
+
 
       {/* Portfolio Table */}
       <PortfolioTable />
