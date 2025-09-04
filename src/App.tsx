@@ -9,6 +9,7 @@ import HotelDetailPage from './pages/HotelDetailPage';
 import InvestorsPage from './pages/InvestorsPage';
 import InvestorDetailPage from './pages/InvestorDetailPage';
 import ReportsPage from './pages/ReportsPage';
+import ReportViewerPage from './pages/ReportViewerPage';
 import AIBotPage from './pages/AIBotPage';
 import { FileText, Building2, Users, Plus, Brain } from 'lucide-react';
 
@@ -80,6 +81,7 @@ function App() {
             <ReportsPage />
           </Layout>
         } />
+        <Route path="/reports/:id" element={<Layout><ReportViewerPage /></Layout>} />
         <Route path="/ai-bot" element={
           <Layout heroProps={{
             title: "FinGPT Assistant",

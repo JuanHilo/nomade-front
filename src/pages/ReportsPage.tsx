@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { Calendar, Download, Filter, FileText, TrendingUp, Eye, Plus, BarChart3, Users, DollarSign, Building2 } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const ReportsPage: React.FC = () => {
+  const navigate = useNavigate();
 
   const reports = [
     {
@@ -65,8 +67,6 @@ const ReportsPage: React.FC = () => {
     }
   ];
 
-  const [selectedReport, setSelectedReport] = useState<any>(reports[0]);
-
   const stats = [
     { 
       value: '15', 
@@ -99,7 +99,7 @@ const ReportsPage: React.FC = () => {
   ];
 
   const handleViewReport = (report: any) => {
-    setSelectedReport(report);
+    navigate(`/reports/${report.id}`);
   };
 
   const handleDownloadReport = (report: any) => {
@@ -254,163 +254,6 @@ const ReportsPage: React.FC = () => {
               </tbody>
             </table>
           </div>
-        </div>
-      </div>
-
-      {/* Performance-style Report Viewer */}
-      <div 
-        className="rounded-2xl p-8 border shadow-2xl border-white/20 backdrop-blur-sm relative overflow-hidden"
-        style={{ 
-          backgroundImage: 'url(/nomadetulum.jpeg)', 
-          backgroundSize: 'cover', 
-          backgroundPosition: 'center',
-          minHeight: '600px'
-        }}
-      >
-        {/* Dark overlay for text readability */}
-        <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-black/75 to-black/80"></div>
-        
-        {/* Subtle luxury accent overlay */}
-        <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/5 via-transparent to-emerald-400/10 pointer-events-none"></div>
-        
-        <div className="relative z-10">
-          <div className="text-center mb-8">
-            <h2 className="text-3xl font-serif mb-3 tracking-wide text-white font-bold">Report Viewer</h2>
-            <p className="text-lg text-white/90 font-light tracking-wide">
-              {selectedReport ? `${selectedReport.title} - ${selectedReport.hotel}` : 'Select a report to view detailed analytics'}
-            </p>
-          </div>
-
-          {selectedReport ? (
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-              {/* Report Details */}
-              <div className="lg:col-span-1 space-y-6">
-                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
-                  <h3 className="text-xl font-serif text-white mb-4">Report Details</h3>
-                  <div className="space-y-4">
-                    <div className="flex justify-between items-center">
-                      <span className="text-white/70">Type:</span>
-                      <span className="text-white font-semibold">{selectedReport.type}</span>
-                    </div>
-                    <div className="flex justify-between items-center">
-                      <span className="text-white/70">Property:</span>
-                      <span className="text-white font-semibold">{selectedReport.hotel}</span>
-                    </div>
-                    <div className="flex justify-between items-center">
-                      <span className="text-white/70">Date:</span>
-                      <span className="text-white font-semibold">{selectedReport.date}</span>
-                    </div>
-                    <div className="flex justify-between items-center">
-                      <span className="text-white/70">Version:</span>
-                      <span className="text-white font-semibold">{selectedReport.version}</span>
-                    </div>
-                    <div className="flex justify-between items-center">
-                      <span className="text-white/70">Downloads:</span>
-                      <span className="text-emerald-300 font-semibold">{selectedReport.downloads}</span>
-                    </div>
-                    <div className="flex justify-between items-center">
-                      <span className="text-white/70">Status:</span>
-                      <span className={`px-2 py-1 rounded-full text-xs font-bold ${
-                        selectedReport.status === 'Published' 
-                          ? 'bg-emerald-400/20 text-emerald-300 border border-emerald-400/30'
-                          : 'bg-yellow-400/20 text-yellow-300 border border-yellow-400/30'
-                      }`}>
-                        {selectedReport.status}
-                      </span>
-                    </div>
-                  </div>
-                  
-                  {selectedReport.status === 'Published' && (
-                    <button
-                      onClick={() => handleDownloadReport(selectedReport)}
-                      className="w-full mt-6 bg-emerald-400/20 text-emerald-300 py-3 rounded-xl hover:bg-emerald-400/30 transition-all duration-300 font-semibold flex items-center justify-center space-x-2 border border-emerald-400/30"
-                    >
-                      <Download size={18} />
-                      <span>Download Report</span>
-                    </button>
-                  )}
-                </div>
-
-                {/* Quick Actions */}
-                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
-                  <h3 className="text-xl font-serif text-white mb-4">Quick Actions</h3>
-                  <div className="space-y-3">
-                    <button className="w-full bg-white/10 text-white py-3 rounded-xl hover:bg-white/20 transition-all duration-300 font-semibold flex items-center justify-center space-x-2 border border-white/20">
-                      <Plus size={18} />
-                      <span>Generate New Report</span>
-                    </button>
-                    <button className="w-full bg-white/10 text-white py-3 rounded-xl hover:bg-white/20 transition-all duration-300 font-semibold flex items-center justify-center space-x-2 border border-white/20">
-                      <Calendar size={18} />
-                      <span>Schedule Report</span>
-                    </button>
-                    <button className="w-full bg-white/10 text-white py-3 rounded-xl hover:bg-white/20 transition-all duration-300 font-semibold flex items-center justify-center space-x-2 border border-white/20">
-                      <Filter size={18} />
-                      <span>Filter Reports</span>
-                    </button>
-                  </div>
-                </div>
-              </div>
-
-              {/* PDF Viewer */}
-              <div className="lg:col-span-2">
-                <div className="bg-white/10 backdrop-blur-sm rounded-2xl overflow-hidden border border-white/20 shadow-2xl">
-                  <div className="bg-black/30 backdrop-blur-sm text-white p-4 flex items-center justify-between border-b border-white/20">
-                    <div>
-                      <h3 className="text-lg font-serif text-white">
-                        {selectedReport.title}
-                      </h3>
-                      <p className="text-sm text-white/80">
-                        {selectedReport.hotel} • {selectedReport.date}
-                      </p>
-                    </div>
-                    {selectedReport.status === 'Published' && (
-                      <button
-                        onClick={() => handleDownloadReport(selectedReport)}
-                        className="bg-emerald-400/20 text-emerald-300 px-4 py-2 rounded-lg hover:bg-emerald-400/30 transition-colors flex items-center space-x-2 border border-emerald-400/30"
-                      >
-                        <Download size={16} />
-                        <span>Download</span>
-                      </button>
-                    )}
-                  </div>
-                  
-                  <div className="h-[600px] bg-white/5">
-                    {selectedReport.status === 'Published' ? (
-                      <iframe
-                        src={selectedReport.pdfUrl}
-                        className="w-full h-full border-0"
-                        title={selectedReport.title}
-                      />
-                    ) : (
-                      <div className="flex items-center justify-center h-full">
-                        <div className="text-center space-y-4">
-                          <FileText className="mx-auto text-white/60" size={64} />
-                          <h3 className="text-xl font-serif text-white">Draft Report</h3>
-                          <p className="text-white/80">This report is still in draft status and not available for viewing.</p>
-                        </div>
-                      </div>
-                    )}
-                  </div>
-                </div>
-              </div>
-            </div>
-          ) : (
-            <div className="flex items-center justify-center h-96">
-              <div className="text-center space-y-6">
-                <div className="relative mx-auto w-20 h-20">
-                  <div className="w-20 h-20 rounded-full border-2 flex items-center justify-center shadow-2xl bg-white/10 border-white/30 backdrop-blur-sm">
-                    <div className="w-16 h-16 rounded-full border-2 flex items-center justify-center bg-black/30 border-white/40 backdrop-blur-sm">
-                      <FileText className="text-white" size={20} />
-                    </div>
-                  </div>
-                </div>
-                <div className="space-y-3">
-                  <h3 className="text-2xl font-serif text-white">Select a Report</h3>
-                  <p className="text-white/80">Choose a report from the table above to view its contents and analytics.</p>
-                </div>
-              </div>
-            </div>
-          )}
         </div>
       </div>
     </div>
