@@ -157,22 +157,22 @@ const ReportsPage: React.FC = () => {
       </div>
 
       {/* Portfolio-style Reports Table */}
-      <div className="rounded-2xl p-8 border shadow-2xl border-white/20 backdrop-blur-sm relative overflow-hidden" style={{ backgroundColor: '#5D681D' }}>
+      <div className="rounded-2xl p-8 border shadow-2xl bg-nomade-dark-brown/95 border-nomade-tan/20 backdrop-blur-sm relative overflow-hidden">
         {/* Subtle gradient overlay */}
-        <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-white/5 via-transparent to-white/5 pointer-events-none"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-nomade-tan/5 via-transparent to-nomade-green/5 pointer-events-none"></div>
         
         <div className="relative z-10">
           <div className="flex items-center justify-between mb-6">
             <div className="flex items-center space-x-3">
-              <div className="rounded-xl p-3 border shadow-lg bg-white/10 border-white/20 backdrop-blur-sm">
-                <FileText className="text-white" size={20} />
+              <div className="rounded-xl p-3 border shadow-lg bg-nomade-tan/20 border-nomade-tan/30 backdrop-blur-sm">
+                <FileText className="text-nomade-tan" size={20} />
               </div>
               <div>
-                <h3 className="text-xl font-serif tracking-wide text-white">Investment Reports</h3>
-                <p className="text-base mt-1 text-white/70">Analytics and documentation across portfolio</p>
+                <h3 className="text-xl font-serif tracking-wide text-nomade-off-white">Investment Reports</h3>
+                <p className="text-base mt-1 text-nomade-tan/80">Analytics and documentation across portfolio</p>
               </div>
             </div>
-            <button className="backdrop-blur-sm px-6 py-3 rounded-xl border hover:bg-white/15 hover:text-yellow-300 transition-all duration-300 text-sm font-medium shadow-lg bg-white/10 text-white border-white/20 hover:transform hover:scale-105">
+            <button className="backdrop-blur-sm px-6 py-3 rounded-xl border hover:bg-nomade-tan/15 hover:text-nomade-tan transition-all duration-300 text-sm font-medium shadow-lg bg-nomade-tan/10 text-nomade-off-white border-nomade-tan/20 hover:transform hover:scale-105">
               <Plus className="inline mr-2" size={16} />
               Generate Report
             </button>
@@ -181,22 +181,22 @@ const ReportsPage: React.FC = () => {
           <div className="overflow-x-auto">
             <table className="w-full">
               <thead>
-                <tr className="border-b border-white/30">
-                  <th className="text-left py-3 px-4 text-xs font-serif tracking-widest uppercase text-white/70">REPORT</th>
-                  <th className="text-center py-3 px-3 text-xs font-serif tracking-widest uppercase text-white/70">TYPE</th>
-                  <th className="text-center py-3 px-3 text-xs font-serif tracking-widest uppercase text-white/70">STATUS</th>
-                  <th className="text-center py-3 px-3 text-xs font-serif tracking-widest uppercase text-white/70">DATE</th>
-                  <th className="text-center py-3 px-3 text-xs font-serif tracking-widest uppercase text-white/70">DOWNLOADS</th>
-                  <th className="text-center py-3 px-3 text-xs font-serif tracking-widest uppercase text-white/70">VERSION</th>
-                  <th className="text-right py-3 px-4 text-xs font-serif tracking-widest uppercase text-white/70">ACTIONS</th>
+                <tr className="border-b border-nomade-tan/30">
+                  <th className="text-left py-3 px-4 text-xs font-serif tracking-widest uppercase text-nomade-tan/70">REPORT</th>
+                  <th className="text-center py-3 px-3 text-xs font-serif tracking-widest uppercase text-nomade-tan/70">TYPE</th>
+                  <th className="text-center py-3 px-3 text-xs font-serif tracking-widest uppercase text-nomade-tan/70">STATUS</th>
+                  <th className="text-center py-3 px-3 text-xs font-serif tracking-widest uppercase text-nomade-tan/70">DATE</th>
+                  <th className="text-center py-3 px-3 text-xs font-serif tracking-widest uppercase text-nomade-tan/70">DOWNLOADS</th>
+                  <th className="text-center py-3 px-3 text-xs font-serif tracking-widest uppercase text-nomade-tan/70">VERSION</th>
+                  <th className="text-right py-3 px-4 text-xs font-serif tracking-widest uppercase text-nomade-tan/70">ACTIONS</th>
                 </tr>
               </thead>
               <tbody>
                 {reports.map((report, index) => (
                   <tr 
                     key={index} 
-                    className={`border-b hover:bg-white/5 transition-colors duration-200 border-white/20 cursor-pointer ${
-                      selectedReport?.id === report.id ? 'bg-white/10' : ''
+                    className={`border-b hover:bg-nomade-tan/5 transition-colors duration-200 border-nomade-tan/20 cursor-pointer ${
+                      selectedReport?.id === report.id ? 'bg-nomade-tan/10' : ''
                     }`}
                     onClick={() => handleViewReport(report)}
                   >

@@ -132,7 +132,7 @@ const AnalyticsCharts: React.FC = () => {
             <XAxis dataKey="day" stroke="#b39d8c" fontSize={10} />
             <YAxis stroke="#b39d8c" fontSize={10} />
             <Tooltip content={<CustomTooltip />} />
-            <Bar dataKey="rate" fill="#5d681d" radius={[2, 2, 0, 0]} />
+            <Bar dataKey="rate" fill="#b39d8c" radius={[2, 2, 0, 0]} />
           </BarChart>
         </ResponsiveContainer>
         </div>
@@ -162,10 +162,10 @@ const AnalyticsCharts: React.FC = () => {
             <Line 
               type="monotone" 
               dataKey="revenue" 
-              stroke="#5d681d"
+              stroke="#b39d8c"
               strokeWidth={2} 
-              dot={{ r: 3, fill: "#5d681d" }}
-              activeDot={{ r: 4, fill: "#5d681d" }}
+              dot={{ r: 3, fill: "#b39d8c" }}
+              activeDot={{ r: 4, fill: "#b39d8c" }}
             />
           </LineChart>
         </ResponsiveContainer>
