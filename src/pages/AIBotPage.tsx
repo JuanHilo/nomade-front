@@ -211,33 +211,6 @@ const AIBotPage: React.FC = () => {
 
       {/* Main Chat Interface */}
       <div className="flex-1 bg-nomade-dark-brown/95 backdrop-blur-2xl rounded-3xl shadow-2xl overflow-hidden flex flex-col border border-nomade-tan/20">
-        {/* Chat Header */}
-        <div className="bg-nomade-dark-brown/90 backdrop-blur-xl p-6 border-b border-nomade-tan/20">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-4">
-              <div className="relative">
-                <div className="w-12 h-12 rounded-2xl bg-nomade-tan/20 border border-nomade-tan/30 flex items-center justify-center shadow-xl backdrop-blur-sm">
-                  <Brain className="text-nomade-tan" size={24} />
-                </div>
-                <div className="absolute -top-1 -right-1 w-4 h-4 bg-nomade-green rounded-full border-2 border-nomade-dark-brown animate-pulse"></div>
-              </div>
-              <div>
-                <h2 className="text-2xl font-bold text-nomade-off-white">
-                  FinGPT Assistant
-                </h2>
-                <p className="text-nomade-tan/80 text-sm">Advanced Hospitality Intelligence • Neural Network v4.2</p>
-              </div>
-            </div>
-            <div className="flex items-center space-x-3">
-              <div className="bg-nomade-green/20 text-nomade-green px-3 py-1 rounded-full text-xs font-bold border border-nomade-green/30">
-                ONLINE
-              </div>
-              <div className="bg-nomade-tan/20 text-nomade-tan px-3 py-1 rounded-full text-xs font-bold border border-nomade-tan/30">
-                LEARNING
-              </div>
-            </div>
-          </div>
-        </div>
 
         {/* Chat Messages */}
         <div className="flex-1 p-6 overflow-y-auto space-y-8 custom-scrollbar">
