@@ -44,10 +44,11 @@ const PortfolioTable: React.FC = () => {
   return (
     <div className="rounded-2xl p-8 border shadow-2xl border-white/20 backdrop-blur-sm relative overflow-hidden" style={{ backgroundColor: '#5D681D' }}>
       {/* Subtle gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/10 via-transparent to-white/5 pointer-events-none"></div>
+      
       <div className="relative z-10">
       <div className="flex items-center justify-between mb-6">
         <div className="flex items-center space-x-3">
+          <div className="rounded-xl p-3 border shadow-lg bg-white/10 border-white/20 backdrop-blur-sm">
             <Building2 className="text-white" size={20} />
           </div>
           <div>
