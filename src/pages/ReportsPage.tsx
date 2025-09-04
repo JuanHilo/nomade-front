@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { Calendar, Download, Filter, FileText, TrendingUp, Eye, Plus, BarChart3, Users, DollarSign, Building2 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import GenerateReportModal from '../components/modals/GenerateReportModal';
 
 const ReportsPage: React.FC = () => {
   const navigate = useNavigate();
   const [selectedReport, setSelectedReport] = useState<any>(null);
+  const [showReportModal, setShowReportModal] = useState(false);
 
   const reports = [
     {
@@ -174,7 +176,7 @@ const ReportsPage: React.FC = () => {
             </div>
             <button className="backdrop-blur-sm px-6 py-3 rounded-xl border hover:bg-nomade-tan/15 hover:text-nomade-tan transition-all duration-300 text-sm font-medium shadow-lg bg-nomade-tan/10 text-nomade-off-white border-nomade-tan/20 hover:transform hover:scale-105">
               <Plus className="inline mr-2" size={16} />
-              Generate Report
+              <span onClick={() => setShowReportModal(true)}>Generate Report</span>
             </button>
           </div>
 
@@ -257,6 +259,11 @@ const ReportsPage: React.FC = () => {
           </div>
         </div>
       </div>
+
+      <GenerateReportModal 
+        isOpen={showReportModal} 
+        onClose={() => setShowReportModal(false)} 
+      />
     </div>
   );
 };

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Download, Filter, TrendingUp, TrendingDown, DollarSign, Calendar, BarChart3 } from 'lucide-react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, BarChart, Bar, ComposedChart, Area, AreaChart } from 'recharts';
+import GenerateReportModal from '../modals/GenerateReportModal';
 
 interface HotelCashflowProps {
   hotel: any;
@@ -9,6 +10,7 @@ interface HotelCashflowProps {
 const HotelCashflow: React.FC<HotelCashflowProps> = ({ hotel }) => {
   const [selectedPeriod, setSelectedPeriod] = useState('2024');
   const [activeTab, setActiveTab] = useState('overview');
+  const [showReportModal, setShowReportModal] = useState(false);
 
   // Cash Flow Overview Metrics
   const cashflowMetrics = [
@@ -622,7 +624,7 @@ const HotelCashflow: React.FC<HotelCashflowProps> = ({ hotel }) => {
             </select>
             <button className="bg-nomade-green text-white px-6 py-2 rounded-xl hover:bg-nomade-light-green transition-all duration-300 font-semibold flex items-center space-x-2">
               <Download size={18} />
-              <span>Export</span>
+              <span onClick={() => setShowReportModal(true)}>Generate Report</span>
             </button>
           </div>
         </div>
@@ -651,6 +653,11 @@ const HotelCashflow: React.FC<HotelCashflowProps> = ({ hotel }) => {
 
       {/* Tab Content */}
       {renderTabContent()}
+
+      <GenerateReportModal 
+        isOpen={showReportModal} 
+        onClose={() => setShowReportModal(false)} 
+      />
     </div>
   );
 };
