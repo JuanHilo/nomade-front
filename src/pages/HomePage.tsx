@@ -43,40 +43,7 @@ const HomePage: React.FC = () => {
 
           {/* Right Visual */}
           <div className="relative lg:pl-12">
-            <div className="grid grid-cols-2 gap-8">
-              <div className="space-y-8">
-                <div className="aspect-[4/5] rounded-2xl overflow-hidden shadow-xl">
-                  <img
-                    src="https://images.pexels.com/photos/2290753/pexels-photo-2290753.jpeg?auto=compress&cs=tinysrgb&w=600"
-                    alt="NOMADE Luxury Hotel"
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-                  />
-                </div>
-                <div className="aspect-[4/3] rounded-2xl overflow-hidden shadow-xl">
-                  <img
-                    src="https://images.pexels.com/photos/1001965/pexels-photo-1001965.jpeg?auto=compress&cs=tinysrgb&w=600"
-                    alt="Analytics Dashboard"
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-                  />
-                </div>
-              </div>
-              <div className="space-y-8 mt-16">
-                <div className="aspect-[4/3] rounded-2xl overflow-hidden shadow-xl">
-                  <img
-                    src="https://images.pexels.com/photos/2029667/pexels-photo-2029667.jpeg?auto=compress&cs=tinysrgb&w=600"
-                    alt="Luxury Hotel Interior"
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-                  />
-                </div>
-                <div className="aspect-[4/5] rounded-2xl overflow-hidden shadow-xl">
-                  <img
-                    src="https://images.pexels.com/photos/5137980/pexels-photo-5137980.jpeg?auto=compress&cs=tinysrgb&w=600"
-                    alt="Investment Meeting"
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-                  />
-                </div>
-              </div>
-            </div>
+            {/* Visual content removed */}
           </div>
         </div>
       </div>
