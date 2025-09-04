@@ -128,9 +128,9 @@ const AnalyticsCharts: React.FC = () => {
         </div>
         <ResponsiveContainer width="100%" height={120}>
           <BarChart data={weeklyOccupancy}>
-            <CartesianGrid strokeDasharray="3 3" stroke="#ebe9d8" strokeOpacity={0.2} />
-            <XAxis dataKey="day" stroke="#ebe9d8" fontSize={10} />
-            <YAxis stroke="#ebe9d8" fontSize={10} />
+            <CartesianGrid strokeDasharray="3 3" stroke="#b39d8c" strokeOpacity={0.2} />
+            <XAxis dataKey="day" stroke="#b39d8c" fontSize={10} />
+            <YAxis stroke="#b39d8c" fontSize={10} />
             <Tooltip content={<CustomTooltip />} />
             <Bar dataKey="rate" fill="#5d681d" radius={[2, 2, 0, 0]} />
           </BarChart>
@@ -155,9 +155,9 @@ const AnalyticsCharts: React.FC = () => {
         </div>
         <ResponsiveContainer width="100%" height={120}>
           <LineChart data={monthlyTrends}>
-            <CartesianGrid strokeDasharray="3 3" stroke="#ebe9d8" strokeOpacity={0.2} />
-            <XAxis dataKey="month" stroke="#ebe9d8" fontSize={10} />
-            <YAxis stroke="#ebe9d8" fontSize={10} />
+            <CartesianGrid strokeDasharray="3 3" stroke="#b39d8c" strokeOpacity={0.2} />
+            <XAxis dataKey="month" stroke="#b39d8c" fontSize={10} />
+            <YAxis stroke="#b39d8c" fontSize={10} />
             <Tooltip content={<CustomTooltip />} />
             <Line 
               type="monotone" 
