@@ -1,78 +1,139 @@
 import React from 'react';
-import { Building2, DollarSign, Activity, Star, TrendingUp, TrendingDown } from 'lucide-react';
+import { Building2 } from 'lucide-react';
 
-const RevenueMetrics: React.FC = () => {
-  const metrics = [
+const PortfolioTable: React.FC = () => {
+  const hotels = [
     {
-      label: "ROOMS REVENUE",
-      value: "€213,549",
-      delta: "+8.2% since last cycle",
-      icon: Building2,
-      positive: true
+      name: "NOMADE",
+      location: "Tulum",
+      city: "Tulum, Mexico",
+      image: "https://images.pexels.com/photos/2290753/pexels-photo-2290753.jpeg?auto=compress&cs=tinysrgb&w=80",
+      rooms: 180,
+      occupancy: "87.2%",
+      revpar: "€423",
+      adr: "€485", 
+      nights: "47,124",
+      value: "€35.2M"
     },
     {
-      label: "FOOD & BEVERAGES", 
-      value: "€86,756",
-      delta: "+12.1% since last cycle",
-      icon: DollarSign,
-      positive: true
+      name: "NOMADE",
+      location: "Madrid", 
+      city: "Madrid, Spain",
+      image: "https://images.pexels.com/photos/2029667/pexels-photo-2029667.jpeg?auto=compress&cs=tinysrgb&w=80",
+      rooms: 120,
+      occupancy: "92.1%",
+      revpar: "€479",
+      adr: "€520",
+      nights: "40,512", 
+      value: "€42.8M"
     },
     {
-      label: "TELEPHONE",
-      value: "€3,041", 
-      delta: "-2.3% since last cycle",
-      icon: Activity,
-      positive: false
-    },
-    {
-      label: "OTHER REVENUE",
-      value: "€130,891",
-      delta: "+15.7% since last cycle", 
-      icon: Star,
-      positive: true
+      name: "NOMADE",
+      location: "Holbox",
+      city: "Holbox, Mexico", 
+      image: "https://images.pexels.com/photos/1134176/pexels-photo-1134176.jpeg?auto=compress&cs=tinysrgb&w=80",
+      rooms: 65,
+      occupancy: "89.5%",
+      revpar: "€395",
+      adr: "€441",
+      nights: "21,243",
+      value: "€20.7M"
     }
   ];
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-      {metrics.map((metric, index) => {
-        const Icon = metric.icon;
-        const TrendIcon = metric.positive ? TrendingUp : TrendingDown;
-        
-        return (
-          <div key={index} className="relative group">
-            <div className="bg-nomade-dark-brown/95 backdrop-blur-sm rounded-2xl p-6 border border-nomade-tan/20 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-105">
-              <div className="text-center space-y-4">
-                <div className="flex justify-center mb-3">
-                  <div className="bg-nomade-tan/20 backdrop-blur-sm rounded-xl p-3 border border-nomade-tan/30 group-hover:bg-nomade-tan/30 transition-all duration-300">
-                    <Icon className="text-nomade-tan group-hover:scale-110 transition-transform duration-300" size={24} />
-                  </div>
-                </div>
-                
-                <div className="space-y-2">
-                  <div className="text-xs font-serif tracking-[0.2em] uppercase text-nomade-tan/80 font-medium">
-                    {metric.label}
-                  </div>
-                  <div className="text-3xl font-bold text-nomade-off-white tracking-tight">
-                    {metric.value}
-                  </div>
-                  <div className="flex items-center justify-center space-x-1">
-                    <TrendIcon size={14} className={metric.positive ? 'text-nomade-green' : 'text-red-400'} />
-                    <div className={`text-sm font-medium ${metric.positive ? 'text-nomade-green' : 'text-red-400'}`}>
-                      {metric.delta}
+    <div className="rounded-2xl p-8 border shadow-2xl bg-nomade-dark-brown/95 border-nomade-tan/20 backdrop-blur-sm relative overflow-hidden">
+      {/* Subtle gradient overlay */}
+      <div className="absolute inset-0 bg-gradient-to-br from-nomade-tan/5 via-transparent to-nomade-green/5 pointer-events-none"></div>
+      
+      <div className="relative z-10">
+      <div className="flex items-center justify-between mb-6">
+        <div className="flex items-center space-x-3">
+          <div className="rounded-xl p-3 border shadow-lg bg-nomade-tan/20 border-nomade-tan/30 backdrop-blur-sm">
+            <Building2 className="text-nomade-tan" size={20} />
+          </div>
+          <div>
+            <h3 className="text-xl font-serif tracking-wide text-nomade-off-white">Hotel Portfolio</h3>
+            <p className="text-base mt-1 text-nomade-tan/80">Performance across distinguished destinations</p>
+          </div>
+        </div>
+        <button className="backdrop-blur-sm px-6 py-3 rounded-xl border hover:bg-nomade-tan/20 hover:text-nomade-tan transition-all duration-300 text-sm font-medium shadow-lg bg-nomade-tan/10 text-nomade-off-white border-nomade-tan/30 hover:transform hover:scale-105">
+          Export Portfolio
+        </button>
+      </div>
+
+      <div className="overflow-x-auto">
+        <table className="w-full">
+          <thead>
+            <tr className="border-b border-nomade-tan/30">
+              <th className="text-left py-3 px-4 text-xs font-serif tracking-widest uppercase text-nomade-tan/80">HOTEL</th>
+              <th className="text-center py-3 px-3 text-xs font-serif tracking-widest uppercase text-nomade-tan/80">ROOMS</th>
+              <th className="text-center py-3 px-3 text-xs font-serif tracking-widest uppercase text-nomade-tan/80">OCCUPANCY</th>
+              <th className="text-center py-3 px-3 text-xs font-serif tracking-widest uppercase text-nomade-tan/80">REVPAR</th>
+              <th className="text-center py-3 px-3 text-xs font-serif tracking-widest uppercase text-nomade-tan/80">AVG. DAILY RATE</th>
+              <th className="text-center py-3 px-3 text-xs font-serif tracking-widest uppercase text-nomade-tan/80">NIGHTS BOOKED</th>
+              <th className="text-right py-3 px-4 text-xs font-serif tracking-widest uppercase text-nomade-tan/80">VALUE</th>
+            </tr>
+          </thead>
+          <tbody>
+            {hotels.map((hotel, index) => (
+              <tr key={index} className="border-b hover:bg-nomade-tan/5 transition-colors duration-200 border-nomade-tan/20">
+                <td className="py-4 px-4">
+                  <div className="flex items-center space-x-3">
+                    <img
+                      src={hotel.image}
+                      alt={`${hotel.name} ${hotel.location}`}
+                      className="w-8 h-8 rounded-lg object-cover border border-nomade-tan/30"
+                    />
+                    <div>
+                      <div className="font-bold text-nomade-off-white">{hotel.name}</div>
+                      <div className="font-bold text-nomade-off-white">{hotel.location}</div>
+                      <div className="text-xs text-nomade-tan/60">{hotel.city}</div>
                     </div>
                   </div>
-                </div>
-              </div>
-            </div>
+                </td>
+                <td className="py-4 px-3 text-center font-bold text-nomade-off-white">{hotel.rooms}</td>
+                <td className="py-4 px-3 text-center">
+                  <span className="px-2 py-1 rounded-full text-xs font-bold border bg-nomade-green/20 text-nomade-green border-nomade-green/30">
+                    {hotel.occupancy}
+                  </span>
+                </td>
+                <td className="py-4 px-3 text-center font-bold text-nomade-off-white">{hotel.revpar}</td>
+                <td className="py-4 px-3 text-center font-bold text-nomade-off-white">{hotel.adr}</td>
+                <td className="py-4 px-3 text-center font-bold text-nomade-off-white">{hotel.nights}</td>
+                <td className="py-4 px-4 text-right font-bold text-lg text-nomade-green">{hotel.value}</td>
+              </tr>
+            ))}
             
-            {/* Subtle glow effect */}
-            <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-nomade-tan/5 via-transparent to-nomade-green/5 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-          </div>
-        );
-      })}
+            <tr className="border-b bg-nomade-green/10 border-nomade-green/30">
+              <td className="py-4 px-4">
+                <div className="flex items-center space-x-3">
+                  <div className="w-8 h-8 rounded-lg border flex items-center justify-center bg-nomade-green/20 border-nomade-green/30">
+                    <Building2 className="text-nomade-green" size={14} />
+                  </div>
+                  <div>
+                    <div className="font-bold text-nomade-off-white">PORTFOLIO</div>
+                    <div className="font-bold text-nomade-off-white">TOTAL</div>
+                  </div>
+                </div>
+              </td>
+              <td className="py-4 px-3 text-center font-bold text-nomade-off-white">365</td>
+              <td className="py-4 px-3 text-center">
+                <span className="px-2 py-1 rounded-full text-xs font-bold border bg-nomade-green/20 text-nomade-green border-nomade-green/30">
+                  89.6%
+                </span>
+              </td>
+              <td className="py-4 px-3 text-center font-bold text-nomade-off-white">€432</td>
+              <td className="py-4 px-3 text-center font-bold text-nomade-off-white">€482</td>
+              <td className="py-4 px-3 text-center font-bold text-nomade-off-white">108,879</td>
+              <td className="py-4 px-4 text-right font-bold text-lg text-nomade-green">€98.7M</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      </div>
     </div>
   );
 };
 
-export default RevenueMetrics;
+export default PortfolioTable;

@@ -42,22 +42,19 @@ const PortfolioTable: React.FC = () => {
   ];
 
   return (
-    <div className="rounded-2xl p-8 border shadow-2xl bg-nomade-dark-brown/95 border-nomade-tan/20 backdrop-blur-sm relative overflow-hidden">
+    <div className="rounded-2xl p-8 border shadow-2xl border-white/20 backdrop-blur-sm relative overflow-hidden" style={{ backgroundColor: '#5D681D' }}>
       {/* Subtle gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-nomade-tan/5 via-transparent to-nomade-green/5 pointer-events-none"></div>
-      
+      <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/10 via-transparent to-white/5 pointer-events-none"></div>
       <div className="relative z-10">
       <div className="flex items-center justify-between mb-6">
         <div className="flex items-center space-x-3">
-          <div className="rounded-xl p-3 border shadow-lg bg-nomade-tan/20 border-nomade-tan/30 backdrop-blur-sm">
-            <Building2 className="text-nomade-tan" size={20} />
           </div>
           <div>
-            <h3 className="text-xl font-serif tracking-wide text-nomade-off-white">Hotel Portfolio</h3>
-            <p className="text-base mt-1 text-nomade-tan/80">Performance across distinguished destinations</p>
+            <h3 className="text-xl font-serif tracking-wide text-white">Hotel Portfolio</h3>
+            <p className="text-base mt-1 text-white/70">Performance across distinguished destinations</p>
           </div>
         </div>
-        <button className="backdrop-blur-sm px-6 py-3 rounded-xl border hover:bg-nomade-tan/20 hover:text-nomade-tan transition-all duration-300 text-sm font-medium shadow-lg bg-nomade-tan/10 text-nomade-off-white border-nomade-tan/30 hover:transform hover:scale-105">
+        <button className="backdrop-blur-sm px-6 py-3 rounded-xl border hover:bg-white/15 hover:text-yellow-300 transition-all duration-300 text-sm font-medium shadow-lg bg-white/10 text-white border-white/20 hover:transform hover:scale-105">
           Export Portfolio
         </button>
       </div>
@@ -66,67 +63,67 @@ const PortfolioTable: React.FC = () => {
         <table className="w-full">
           <thead>
             <tr className="border-b border-nomade-tan/30">
-              <th className="text-left py-3 px-4 text-xs font-serif tracking-widest uppercase text-nomade-tan/80">HOTEL</th>
-              <th className="text-center py-3 px-3 text-xs font-serif tracking-widest uppercase text-nomade-tan/80">ROOMS</th>
-              <th className="text-center py-3 px-3 text-xs font-serif tracking-widest uppercase text-nomade-tan/80">OCCUPANCY</th>
-              <th className="text-center py-3 px-3 text-xs font-serif tracking-widest uppercase text-nomade-tan/80">REVPAR</th>
-              <th className="text-center py-3 px-3 text-xs font-serif tracking-widest uppercase text-nomade-tan/80">AVG. DAILY RATE</th>
-              <th className="text-center py-3 px-3 text-xs font-serif tracking-widest uppercase text-nomade-tan/80">NIGHTS BOOKED</th>
-              <th className="text-right py-3 px-4 text-xs font-serif tracking-widest uppercase text-nomade-tan/80">VALUE</th>
+              <th className="text-left py-3 px-4 text-xs font-serif tracking-widest uppercase text-white/70">HOTEL</th>
+              <th className="text-center py-3 px-3 text-xs font-serif tracking-widest uppercase text-white/70">ROOMS</th>
+              <th className="text-center py-3 px-3 text-xs font-serif tracking-widest uppercase text-white/70">OCCUPANCY</th>
+              <th className="text-center py-3 px-3 text-xs font-serif tracking-widest uppercase text-white/70">REVPAR</th>
+              <th className="text-center py-3 px-3 text-xs font-serif tracking-widest uppercase text-white/70">AVG. DAILY RATE</th>
+              <th className="text-center py-3 px-3 text-xs font-serif tracking-widest uppercase text-white/70">NIGHTS BOOKED</th>
+              <th className="text-right py-3 px-4 text-xs font-serif tracking-widest uppercase text-white/70">VALUE</th>
             </tr>
           </thead>
           <tbody>
             {hotels.map((hotel, index) => (
-              <tr key={index} className="border-b hover:bg-nomade-tan/5 transition-colors duration-200 border-nomade-tan/20">
+              <tr key={index} className="border-b hover:bg-white/5 transition-colors duration-200 border-white/20">
                 <td className="py-4 px-4">
                   <div className="flex items-center space-x-3">
                     <img
                       src={hotel.image}
                       alt={`${hotel.name} ${hotel.location}`}
-                      className="w-8 h-8 rounded-lg object-cover border border-nomade-tan/30"
+                      className="w-8 h-8 rounded-lg object-cover border border-white/30"
                     />
                     <div>
-                      <div className="font-bold text-nomade-off-white">{hotel.name}</div>
-                      <div className="font-bold text-nomade-off-white">{hotel.location}</div>
-                      <div className="text-xs text-nomade-tan/60">{hotel.city}</div>
+                      <div className="font-bold text-white">{hotel.name}</div>
+                      <div className="font-bold text-white">{hotel.location}</div>
+                      <div className="text-xs text-white/60">{hotel.city}</div>
                     </div>
                   </div>
                 </td>
-                <td className="py-4 px-3 text-center font-bold text-nomade-off-white">{hotel.rooms}</td>
+                <td className="py-4 px-3 text-center font-bold text-white">{hotel.rooms}</td>
                 <td className="py-4 px-3 text-center">
-                  <span className="px-2 py-1 rounded-full text-xs font-bold border bg-nomade-green/20 text-nomade-green border-nomade-green/30">
+                  <span className="px-2 py-1 rounded-full text-xs font-bold border bg-emerald-400/20 text-emerald-300 border-emerald-400/30">
                     {hotel.occupancy}
                   </span>
                 </td>
-                <td className="py-4 px-3 text-center font-bold text-nomade-off-white">{hotel.revpar}</td>
-                <td className="py-4 px-3 text-center font-bold text-nomade-off-white">{hotel.adr}</td>
-                <td className="py-4 px-3 text-center font-bold text-nomade-off-white">{hotel.nights}</td>
-                <td className="py-4 px-4 text-right font-bold text-lg text-nomade-green">{hotel.value}</td>
+                <td className="py-4 px-3 text-center font-bold text-white">{hotel.revpar}</td>
+                <td className="py-4 px-3 text-center font-bold text-white">{hotel.adr}</td>
+                <td className="py-4 px-3 text-center font-bold text-white">{hotel.nights}</td>
+                <td className="py-4 px-4 text-right font-bold text-lg text-emerald-300">{hotel.value}</td>
               </tr>
             ))}
             
-            <tr className="border-b bg-nomade-green/10 border-nomade-green/30">
-              <td className="py-4 px-4">
+            <tr className="border-b bg-emerald-400/10 border-emerald-400/30">
+            <div className="absolute -inset-1 rounded-2xl bg-gradient-to-br from-yellow-400/20 via-transparent to-emerald-400/20 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm"></div>
                 <div className="flex items-center space-x-3">
-                  <div className="w-8 h-8 rounded-lg border flex items-center justify-center bg-nomade-green/20 border-nomade-green/30">
-                    <Building2 className="text-nomade-green" size={14} />
+                  <div className="w-8 h-8 rounded-lg border flex items-center justify-center bg-emerald-400/20 border-emerald-400/30">
+                    <Building2 className="text-emerald-300" size={14} />
                   </div>
                   <div>
-                    <div className="font-bold text-nomade-off-white">PORTFOLIO</div>
-                    <div className="font-bold text-nomade-off-white">TOTAL</div>
+                    <div className="font-bold text-white">PORTFOLIO</div>
+                    <div className="font-bold text-white">TOTAL</div>
                   </div>
                 </div>
               </td>
-              <td className="py-4 px-3 text-center font-bold text-nomade-off-white">365</td>
+              <td className="py-4 px-3 text-center font-bold text-white">365</td>
               <td className="py-4 px-3 text-center">
-                <span className="px-2 py-1 rounded-full text-xs font-bold border bg-nomade-green/20 text-nomade-green border-nomade-green/30">
+                <span className="px-2 py-1 rounded-full text-xs font-bold border bg-emerald-400/20 text-emerald-300 border-emerald-400/30">
                   89.6%
                 </span>
               </td>
-              <td className="py-4 px-3 text-center font-bold text-nomade-off-white">€432</td>
-              <td className="py-4 px-3 text-center font-bold text-nomade-off-white">€482</td>
-              <td className="py-4 px-3 text-center font-bold text-nomade-off-white">108,879</td>
-              <td className="py-4 px-4 text-right font-bold text-lg text-nomade-green">€98.7M</td>
+              <td className="py-4 px-3 text-center font-bold text-white">€432</td>
+              <td className="py-4 px-3 text-center font-bold text-white">€482</td>
+              <td className="py-4 px-3 text-center font-bold text-white">108,879</td>
+              <td className="py-4 px-4 text-right font-bold text-lg text-emerald-300">€98.7M</td>
             </tr>
           </tbody>
         </table>
