@@ -156,7 +156,6 @@ const InvestorDetailPage: React.FC = () => {
     { id: 'investments', label: 'Investments', icon: DollarSign },
     { id: 'performance', label: 'Performance', icon: TrendingUp },
     { id: 'documents', label: 'Documents', icon: FileText },
-    { id: 'communications', label: 'Communications', icon: MessageSquare },
     { id: 'profile', label: 'Profile', icon: Users }
   ];
 
@@ -439,69 +438,6 @@ const InvestorDetailPage: React.FC = () => {
     </div>
   );
 
-  const renderCommunications = () => (
-    <div className="space-y-8">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-        <div className="bg-white rounded-2xl p-8 shadow-lg border border-nomade-gray/10">
-          <h3 className="text-2xl font-bold text-nomade-dark-brown mb-6">Key Contacts</h3>
-          <div className="space-y-6">
-            {investor.contacts.map((contact, index) => (
-              <div key={index} className="flex items-center space-x-4 p-4 bg-nomade-gray/5 rounded-xl">
-                <img
-                  src={contact.avatar}
-                  alt={contact.name}
-                  className="w-12 h-12 rounded-full object-cover"
-                />
-                <div className="flex-1">
-                  <h4 className="font-semibold text-nomade-dark-brown">{contact.name}</h4>
-                  <p className="text-sm text-nomade-gray">{contact.role}</p>
-                  <div className="flex items-center space-x-4 mt-2">
-                    <a href={`mailto:${contact.email}`} className="text-nomade-green hover:text-nomade-light-green">
-                      <Mail size={16} />
-                    </a>
-                    <a href={`tel:${contact.phone}`} className="text-nomade-green hover:text-nomade-light-green">
-                      <Phone size={16} />
-                    </a>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <div className="bg-white rounded-2xl p-8 shadow-lg border border-nomade-gray/10">
-          <h3 className="text-2xl font-bold text-nomade-dark-brown mb-6">Recent Communications</h3>
-          <div className="space-y-4">
-            {[
-              { type: 'email', subject: 'Q2 Performance Review', date: '2024-07-15', status: 'sent' },
-              { type: 'call', subject: 'Investment Strategy Discussion', date: '2024-07-10', status: 'completed' },
-              { type: 'meeting', subject: 'Portfolio Review Meeting', date: '2024-07-05', status: 'scheduled' },
-              { type: 'email', subject: 'Monthly Report - June 2024', date: '2024-06-30', status: 'sent' }
-            ].map((comm, index) => (
-              <div key={index} className="flex items-center justify-between p-3 bg-nomade-gray/5 rounded-xl">
-                <div className="flex items-center space-x-3">
-                  {comm.type === 'email' && <Mail className="text-nomade-green" size={18} />}
-                  {comm.type === 'call' && <Phone className="text-nomade-terracotta" size={18} />}
-                  {comm.type === 'meeting' && <Video className="text-nomade-blue" size={18} />}
-                  <div>
-                    <p className="font-medium text-nomade-dark-brown">{comm.subject}</p>
-                    <p className="text-sm text-nomade-gray">{comm.date}</p>
-                  </div>
-                </div>
-                <span className={`px-2 py-1 rounded-full text-xs font-semibold ${
-                  comm.status === 'sent' ? 'bg-green-100 text-green-800' :
-                  comm.status === 'completed' ? 'bg-blue-100 text-blue-800' :
-                  'bg-yellow-100 text-yellow-800'
-                }`}>
-                  {comm.status}
-                </span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-    </div>
-  );
 
   const renderProfile = () => (
     <div className="space-y-8">
@@ -588,8 +524,6 @@ const InvestorDetailPage: React.FC = () => {
         return renderPerformance();
       case 'documents':
         return renderDocuments();
-      case 'communications':
-        return renderCommunications();
       case 'profile':
         return renderProfile();
       default:
