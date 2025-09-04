@@ -9,7 +9,7 @@ const InvestorsPage: React.FC = () => {
     {
       id: 1,
       name: 'Real Estate Bullish Fund',
-      type: 'Institutional',
+      type: 'Institutional',|
       avatar: 'https://images.pexels.com/photos/5668882/pexels-photo-5668882.jpeg?auto=compress&cs=tinysrgb&w=300',
       email: 'bullishfund@realestate.com',
       phone: '593040331',
@@ -17,7 +17,7 @@ const InvestorsPage: React.FC = () => {
       totalInvestment: '€129.0M',
       joinedDate: '5 Jul 2025',
       duration: '1 months',
-      projects: ['El 53 de Velázquez', 'AC Hotels'],
+      projects: ['Nomade Tulum', 'Nomade Holbox'],
       performance: '+12.4%'
     },
     {
@@ -31,7 +31,7 @@ const InvestorsPage: React.FC = () => {
       totalInvestment: '€29.0M',
       joinedDate: '4 Jul 2025',
       duration: '2 months',
-      projects: ['El 53 de Velázquez'],
+      projects: ['Nomade Tulum'],
       performance: '+8.7%'
     },
     {
@@ -45,7 +45,7 @@ const InvestorsPage: React.FC = () => {
       totalInvestment: '€157.0M',
       joinedDate: '5 Jul 2025',
       duration: '1 months',
-      projects: ['El 53 de Velázquez', 'Hermanos Becquer'],
+      projects: ['Nomade Tulum', 'Nomade Ibiza'],
       performance: '+15.2%'
     },
     {
